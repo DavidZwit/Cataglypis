@@ -15,6 +15,7 @@ public class FollowObject : MonoBehaviour {
     {
         if (follow == true)
         {
+            
             Vector3 distance = new Vector3(
                 target.transform.position.x - gameObject.transform.position.x,
                 target.transform.position.y - gameObject.transform.position.y,
@@ -24,4 +25,5 @@ public class FollowObject : MonoBehaviour {
             gameObject.transform.position += distance / stoppingPower;
         }
     }
+   
 }
