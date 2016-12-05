@@ -7,6 +7,9 @@ public class FollowObject : MonoBehaviour {
     float stoppingPower = 10;
 
     [SerializeField]
+    Vector3 offset = new Vector3();
+
+    [SerializeField]
     GameObject target;
 
     public bool follow = true;
@@ -19,9 +22,9 @@ public class FollowObject : MonoBehaviour {
                 target.transform.position.x - gameObject.transform.position.x,
                 target.transform.position.y - gameObject.transform.position.y,
                 0
-             );
+             ) + offset;
 
-            gameObject.transform.position += distance / stoppingPower;
+            gameObject.transform.Translate( distance / stoppingPower);
         }
     }
 }

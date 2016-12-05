@@ -18,6 +18,6 @@ public class ChangeToPlayerSize : MonoBehaviour {
 
     void ChangeSize(float size)
     {
-        gameObject.transform.localScale = new Vector3(size, size, 0) * sizeMultiplier;
+        gameObject.transform.localScale = new Vector3(size, size, size) * sizeMultiplier;
     }
 }
