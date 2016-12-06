@@ -2,6 +2,7 @@
 using System.Collections;
 /// <summary>
 /// This class is responsible for the dashing movement and setting it off if the object hits a collider.
+/// Object must have a rigidbody2d to work.
 /// </summary>
 public class Dash : MonoBehaviour {
 
