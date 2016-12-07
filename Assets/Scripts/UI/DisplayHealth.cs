@@ -5,11 +5,6 @@ public class DisplayHealth : MonoBehaviour {
     [SerializeField]
     private Image[] heartImages;
 
-    void Start()
-    {
-        UpdateDisplay(2);
-    }
-
     public void UpdateDisplay(int lives)
     {
         for (int i = 0; i < heartImages.Length; i++)
