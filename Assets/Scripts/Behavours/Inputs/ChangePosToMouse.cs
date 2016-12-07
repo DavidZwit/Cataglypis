@@ -1,0 +1,21 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class ChangePosToMouse : MonoBehaviour {
+
+    Camera camera;
+
+    void Awake()
+    {
+        camera = Camera.main;
+    }
+
+    void Update()
+    {
+        if (Input.GetMouseButton(0) == true)
+        {
+            Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+            gameObject.transform.position = mousePos;
+        }
+    }
+}
