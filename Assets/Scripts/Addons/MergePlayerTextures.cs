@@ -7,7 +7,7 @@ public enum texType {
     hay = 1
 }
 
-public class MergeShader : MonoBehaviour {
+public class MergePlayerTextures : MonoBehaviour {
     Material myMaterial;
     [SerializeField]
     Texture[] highlightTextures;
@@ -28,18 +28,16 @@ public class MergeShader : MonoBehaviour {
         myMaterial.mainTexture = Instantiate(myMaterial.mainTexture);
     }
 
-    void MergeTexture (float size, Texture tex, texType type)
+    void MergeTexture (IsMergeable mergeScript)
     {
+        Texture tex = mergeScript.tex;
+        texType type = mergeScript.type;
+
         myMaterial.mainTexture = MergeNewTex(
             myMaterial.mainTexture as Texture2D, 
             tex as Texture2D, 
             highlightTextures[(int)type] as Texture2D
          ) as Texture;
-    }
-    
-    void applyMerge()
-    {
-
     }
 
     Texture2D MergeNewTex(Texture2D baseTex, Texture2D mergeTex, Texture2D highlightMap)
@@ -47,12 +45,13 @@ public class MergeShader : MonoBehaviour {
         Vector2 offset = new Vector2();
         offset.x += Mathf.Round(Random.Range(0, baseTex.width));
         offset.y += Mathf.Round(Random.Range(0, baseTex.height));
+
        for (var x = 0; x < baseTex.width; x++) { 
             for (var y = 0; y < baseTex.height; y++)
             {
-                float alpha = highlightMap.GetPixel(x, y).a;
                 offset.x = offset.x > baseTex.width ? -baseTex.width : offset.x;
                 offset.y = offset.y > baseTex.height ? -baseTex.height : offset.y;
+                float alpha = highlightMap.GetPixel(x + (int) offset.x, y + (int) offset.y).a;
 
                 baseTex.SetPixel(x, y,
                     alpha > 0 ? mergeTex.GetPixel(x + (int)offset.x, y + (int)offset.y) * alpha : baseTex.GetPixel(x, y)

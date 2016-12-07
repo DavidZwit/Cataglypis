@@ -3,7 +3,7 @@ using System;
 
 public class PlayerMerge : IsMergeable {
 
-    public static Action<float, Texture, texType> IMerged;
+    public static Action<IsMergeable> IMerged;
     public static Action IFailedToMerge;
 
     void OnEnable()
@@ -24,7 +24,7 @@ public class PlayerMerge : IsMergeable {
         if (size >= otherSize) {
             size += otherSize;
             if (IMerged != null)
-                IMerged(size, otherTexture, mergeScript.type);
+                IMerged(mergeScript);
             mergeScript.DestroyMe();
         }//grow(), merge and destroy other
 
