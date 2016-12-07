@@ -15,8 +15,8 @@ public class ChangeToPlayerSize : MonoBehaviour {
     {
         PlayerMerge.IMerged -= ChangeSize;
     }
-
-    void ChangeSize(float size)
+    
+    void ChangeSize(float size, Texture tex, texType type)
     {
         gameObject.transform.localScale = new Vector3(size, size, size) * sizeMultiplier;
     }

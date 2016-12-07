@@ -13,9 +13,16 @@ public class IsMergeable : MonoBehaviour {
     /*
      * Still need to get the texture here
     */
-    public Texture tex; 
+    public Texture2D tex; 
+    [SerializeField]
+    public texType type;
 
     public static Action<IsMergeable> OnMerge;
+
+    void Awake()
+    {
+        tex = GetComponent<MeshRenderer>().material.mainTexture as Texture2D;
+    }
 
     void OnCollisionEnter2D (Collision2D coll)
     {
