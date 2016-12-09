@@ -14,19 +14,30 @@ public class FollowObject : MonoBehaviour {
 
     public bool follow = true;
 
-	void Update ()
+    private Vector3 distance;
+	void FixedUpdate ()
     {
         if (follow == true)
         {
             
-            Vector3 distance = new Vector3(
+            distance = new Vector3(
                 target.transform.position.x - gameObject.transform.position.x,
                 target.transform.position.y - gameObject.transform.position.y,
                 0
              ) + offset;
-
-            gameObject.transform.Translate( distance / stoppingPower);
+            if(!GetComponent<Rigidbody2D>())
+                gameObject.transform.Translate( distance / stoppingPower);
+            else
+            {
+                GetComponent<Rigidbody2D>().velocity = distance;
+            }
         }
     }
+
+    public Vector3 Distance
+    {
+        get { return distance; }
+    }
+    
    
 }
