@@ -4,7 +4,7 @@ using System;
 public class PlayerMerge : IsMergeable {
 
     public static Action<IsMergeable> IMerged;
-    public static Action IFailedToMerge;
+    public static Action<GameObject> IFailedToMerge;
 
     void OnEnable()
     {
@@ -19,7 +19,6 @@ public class PlayerMerge : IsMergeable {
     void MergeHappend(IsMergeable mergeScript)
     {
         float otherSize = mergeScript.size;
-        Texture2D otherTexture = mergeScript.tex;
 
         if (size >= otherSize) {
             size += otherSize;
@@ -30,7 +29,7 @@ public class PlayerMerge : IsMergeable {
 
         else if (size < otherSize)
             if (IFailedToMerge != null) {
-                IFailedToMerge();
+                IFailedToMerge(gameObject);
         } //Break into two()
 
         if (UpdatedSize != null)
