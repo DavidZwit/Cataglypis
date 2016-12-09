@@ -4,7 +4,6 @@ using System.Collections;
 public class ChangePosToTouchPos : MonoBehaviour {
 
     Camera camera;
-
     void Awake()
     {
         camera = Camera.main;

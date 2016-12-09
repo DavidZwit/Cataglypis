@@ -17,7 +17,7 @@ public class FollowObject : MonoBehaviour {
     private Vector3 distance;
 	void FixedUpdate ()
     {
-        if (follow == true)
+        if (follow == true && target != null)
         {
             
             distance = new Vector3(
