@@ -13,6 +13,6 @@ public class RotateAroundWorld : MonoBehaviour {
 	}
 	
 	void Update () {
-        transform.Rotate(rb.velocity.y *speed, -rb.velocity.x*speed,0,Space.World);
+        transform.Rotate(rb.velocity.y *speed *Time.timeScale, -rb.velocity.x*speed * Time.timeScale,0,Space.World);
     }
 }
