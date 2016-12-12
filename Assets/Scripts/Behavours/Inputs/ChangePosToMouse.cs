@@ -5,6 +5,9 @@ public class ChangePosToMouse : MonoBehaviour {
 
     Camera camera;
 
+    [SerializeField]
+    private GameObject tapParticle;
+
     void Awake()
     {
         camera = Camera.main;
@@ -17,5 +20,7 @@ public class ChangePosToMouse : MonoBehaviour {
             Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
             gameObject.transform.position = mousePos;
         }
+        if(Input.GetMouseButtonDown(0) == true)
+            Instantiate(tapParticle, transform.position, Quaternion.identity);
     }
 }
