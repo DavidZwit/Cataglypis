@@ -43,8 +43,8 @@ public class MergePlayerTextures : MonoBehaviour {
     Texture2D MergeNewTex(Texture2D baseTex, Texture2D mergeTex, Texture2D highlightMap)
     {
         Vector2 offset = new Vector2();
-        offset.x += Mathf.Round(Random.Range(0, baseTex.width));
-        offset.y += Mathf.Round(Random.Range(0, baseTex.height));
+        offset.x += Mathf.Round(Random.Range(0, baseTex.width/2));
+        offset.y += Mathf.Round(Random.Range(0, baseTex.height/2));
 
        for (var x = 0; x < baseTex.width; x++) { 
             for (var y = 0; y < baseTex.height; y++)

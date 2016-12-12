@@ -9,7 +9,6 @@ public class IsMergeable : MonoBehaviour {
     public delegate void NewSize(float newSize);
     public NewSize UpdatedSize;
 
-    
     /*
      * Still need to get the texture here
     */
