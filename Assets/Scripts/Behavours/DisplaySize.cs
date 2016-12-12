@@ -20,17 +20,20 @@ public class DisplaySize : MonoBehaviour {
 
     void CreateText()
     {
-        GameObject newGameobject = new GameObject("Score");
+        GameObject newGameobject = Instantiate(Resources.Load("Label", typeof(GameObject))) as GameObject;
+        //GameObject newGameobject = new GameObject("Score");
         newGameobject.transform.SetParent(gameObject.transform);
-        newGameobject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z-.2f);
+        newGameobject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
 
+        score = newGameobject.transform.GetChild(0).GetComponent<TextMesh>();
+        /*
         score = newGameobject.AddComponent<TextMesh>() as TextMesh;
-
         score.characterSize = .01f;
         score.fontSize = 100;
         score.anchor = TextAnchor.LowerCenter;
         score.color = new Color(20, 20, 20);
         score.offsetZ = -2f;
+        */
     }
 
     void OnEnable()
