@@ -35,7 +35,7 @@ public class MergePlayerModels : MonoBehaviour {
                 //original.uv[i] = merge.uv[i];
 
                 //print(original.vertices[i]);
-            print(i);
+                print(i);
             }
         }
         
