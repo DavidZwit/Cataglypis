@@ -16,7 +16,6 @@ public class ChangeToSize : MonoBehaviour {
     {
         GetComponent<IsMergeable>().UpdatedSize += ChangeSize;
     }
-
     void OnDisable ()
     {
         GetComponent<IsMergeable>().UpdatedSize -= ChangeSize;
