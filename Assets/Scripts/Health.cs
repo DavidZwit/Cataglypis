@@ -18,7 +18,7 @@ public class Health : MonoBehaviour {
         PlayerMerge.IFailedToMerge += HealthLost;
 	}
 
-    public void HealthLost(GameObject temp)
+    public void HealthLost(IsMergeable temp)
     {
         lives--;
         display.UpdateDisplay(lives);
