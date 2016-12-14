@@ -5,6 +5,7 @@ public class PlayerMerge : IsMergeable {
 
     public static Action<IsMergeable> IMerged;
     public static Action<IsMergeable> IFailedToMerge;
+    public static Action LosingHealth;
     [SerializeField]
     private float minSize = .1f;
     [SerializeField]
@@ -41,7 +42,11 @@ public class PlayerMerge : IsMergeable {
 
         else if (size < otherSize && size > minSize) {
             if (IFailedToMerge != null)
+            {
+                LosingHealth();
                 IFailedToMerge(this);
+            }
+                
         } //Break into two()
 
         if (UpdatedSize != null)

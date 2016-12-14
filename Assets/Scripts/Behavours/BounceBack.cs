@@ -13,8 +13,8 @@ public class BounceBack : MonoBehaviour {
     }
     public void SetPosition(IsMergeable mergeScript)
     {
-        Debug.Log("bouncy balls");
-        transform.Translate(mergeScript.gameObject.transform.position - transform.position*2);
-        //transform.Translate(-mergeScript.gameObject.GetComponent<Rigidbody2D>().velocity.normalized);
+        Vector3 mergepos = mergeScript.gameObject.transform.position;
+        Vector3 distance = new Vector3(mergepos.x - transform.position.x, mergepos.y - transform.position.y, 0).normalized;
+        transform.position = mergepos + distance;
     }
 }

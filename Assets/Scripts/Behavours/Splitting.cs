@@ -18,8 +18,11 @@ public class Splitting : MonoBehaviour {
         playerObject.size /= 2;
 
         GameObject playerWaste = Instantiate(playerObject.gameObject) as GameObject;
-        playerWaste.transform.Translate(new Vector3(Random.Range(-1,1) , Random.Range(-1, 1), 0));
-        
+
+        StartCoroutine(CloneBall(playerWaste.GetComponent<CircleCollider2D>()));
+
+        playerWaste.GetComponent<Rigidbody2D>().velocity = playerObject.GetComponent<Rigidbody2D>().velocity.normalized;
+
         foreach (MonoBehaviour script in playerWaste.GetComponents<MonoBehaviour>())
             Destroy(script);
 
@@ -29,6 +32,7 @@ public class Splitting : MonoBehaviour {
                 Destroy(child.gameObject);
         }
 
+        playerWaste.AddComponent<RotateAroundWorld>();
         IsMergeable mergeScript = playerWaste.AddComponent<IsMergeable>();
         mergeScript.size = playerObject.size;
 
@@ -39,7 +43,11 @@ public class Splitting : MonoBehaviour {
         playerWaste.AddComponent<DisplaySize>();
 
         sizeScript.ChangeSize(mergeScript.size);
-
-
+    }
+    IEnumerator CloneBall(CircleCollider2D coll)
+    {
+        coll.isTrigger = true;
+        yield return new WaitForSeconds(1f);
+        coll.isTrigger = false;
     }
 }
