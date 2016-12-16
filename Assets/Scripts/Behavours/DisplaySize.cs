@@ -22,7 +22,7 @@ public class DisplaySize : MonoBehaviour {
     {
         if (randomNaming)
         {
-            multiplicationfactor = Mathf.RoundToInt(-2 + Random.value * 1);
+            multiplicationfactor = Mathf.RoundToInt(-2 + Random.value * 3);
             GetUnitTerm();
         }
         CreateText();
