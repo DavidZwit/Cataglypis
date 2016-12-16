@@ -14,16 +14,17 @@ public class ChangeToSize : MonoBehaviour {
 
 	void Awake ()
     {
-        GetComponent<IsMergeable>().UpdatedSize += ChangeSize;
+        GetComponent<IsMergeable>().UpdatedSize += UpdateSize;
+        UpdateSize(GetComponent<IsMergeable>().size);
     }
     void OnDisable ()
     {
-        GetComponent<IsMergeable>().UpdatedSize -= ChangeSize;
+        GetComponent<IsMergeable>().UpdatedSize -= UpdateSize;
     }
 
-    public void ChangeSize(float mergeSize)
+    public void UpdateSize(float size)
     {
-
-        gameObject.transform.localScale = new Vector3(mergeSize, mergeSize, mergeSize) * sizeMultiplier;
+        float curentScale = size*sizeMultiplier;
+        gameObject.transform.localScale = new Vector3(.3f+curentScale, .3f+curentScale, .3f+curentScale);
     }
 }

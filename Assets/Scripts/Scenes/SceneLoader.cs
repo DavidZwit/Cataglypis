@@ -5,12 +5,12 @@ public class SceneLoader : MonoBehaviour {
 
     void OnEnable()
     {
-        //Health.Lost += ReloadScene;
+        Health.Lost += ReloadScene;
     }
 
     void OnDisable()
     {
-        //Health.Lost -= ReloadScene;
+        Health.Lost -= ReloadScene;
     }
     public void LoadNewScene(string scene)
     {

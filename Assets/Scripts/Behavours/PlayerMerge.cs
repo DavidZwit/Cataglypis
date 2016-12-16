@@ -12,10 +12,6 @@ public class PlayerMerge : IsMergeable {
     private float maxSize = 2;
 
 
-    void Start()
-    {
-        UpdatedSize(size);
-    }
     void OnEnable()
     {
         IsMergeable.OnMerge += MergeHappend;

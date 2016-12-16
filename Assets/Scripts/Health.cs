@@ -17,14 +17,21 @@ public class Health : MonoBehaviour {
         lives = maxLives;
         display.UpdateDisplay(lives);
 
-        PlayerMerge.LosingHealth += HealthLost;
 	}
+    void OnEnable()
+    {
+        PlayerMerge.LosingHealth += HealthLost;
+    }
+
+    void OnDisable()
+    {
+        PlayerMerge.LosingHealth -= HealthLost;
+    }
 
     public void HealthLost()
     {
         lives--;
         display.UpdateDisplay(lives);
-
         if (lives <= 0)
         {
             Instantiate(deathParticle, transform.position, Quaternion.identity);

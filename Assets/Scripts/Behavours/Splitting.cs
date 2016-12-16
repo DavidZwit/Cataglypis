@@ -42,7 +42,7 @@ public class Splitting : MonoBehaviour {
 
         playerWaste.AddComponent<DisplaySize>();
 
-        sizeScript.ChangeSize(mergeScript.size);
+        sizeScript.UpdateSize(mergeScript.size);
     }
     IEnumerator CloneBall(CircleCollider2D coll)
     {
