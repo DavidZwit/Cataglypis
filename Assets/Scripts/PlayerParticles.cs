@@ -12,10 +12,16 @@ public class PlayerParticles : MonoBehaviour {
     [SerializeField]
     private GameObject mergeFailParticle;
 
-    void Start()
+    void OnEnable()
     {
         PlayerMerge.IFailedToMerge += FailingToMerge;
         PlayerMerge.IMerged += SucceedsToMerge;
+    }
+
+    void OnDisable()
+    {
+        PlayerMerge.IFailedToMerge -= FailingToMerge;
+        PlayerMerge.IMerged -= SucceedsToMerge;
     }
 
     void OnCollisionEnter2D(Collision2D coll)
@@ -23,7 +29,7 @@ public class PlayerParticles : MonoBehaviour {
         Instantiate(collissionParticle, transform.position, Quaternion.identity);
     }
 
-    void FailingToMerge(GameObject temp)
+    void FailingToMerge(IsMergeable temp)
     {
         Instantiate(mergeFailParticle, transform.position, Quaternion.identity);
     }

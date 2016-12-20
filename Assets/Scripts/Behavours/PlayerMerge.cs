@@ -4,7 +4,13 @@ using System;
 public class PlayerMerge : IsMergeable {
 
     public static Action<IsMergeable> IMerged;
-    public static Action<GameObject> IFailedToMerge;
+    public static Action<IsMergeable> IFailedToMerge;
+    public static Action LosingHealth;
+    [SerializeField]
+    private float minSize = .1f;
+    [SerializeField]
+    private float maxSize = 2;
+
 
     void OnEnable()
     {
@@ -19,17 +25,24 @@ public class PlayerMerge : IsMergeable {
     void MergeHappend(IsMergeable mergeScript)
     {
         float otherSize = mergeScript.size;
+        Texture2D otherTexture = mergeScript.tex;
 
         if (size >= otherSize) {
-            size += otherSize;
-            if (IMerged != null)
-                IMerged(mergeScript);
+            if (size < maxSize) {
+                size += otherSize;
+                if (IMerged != null)
+                    IMerged(mergeScript);
+            }
             mergeScript.DestroyMe();
         }//grow(), merge and destroy other
 
-        else if (size < otherSize)
-            if (IFailedToMerge != null) {
-                IFailedToMerge(gameObject);
+        else if (size < otherSize && size > minSize) {
+            if (IFailedToMerge != null)
+            {
+                LosingHealth();
+                IFailedToMerge(this);
+            }
+                
         } //Break into two()
 
         if (UpdatedSize != null)

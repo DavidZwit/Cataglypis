@@ -2,12 +2,22 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 public class TestObjectThatsTriggered : MonoBehaviour, ITrigger {
+
+    private TextMesh mesh;
+    void Start()
+    {
+        mesh = GetComponent<TextMesh>();
+        mesh.text = "Not enough mass";
+
+    }
     public void Triggered(GameObject target)
     {
-        Debug.Log("I am triggered!");
+        mesh.text = "You've won! Yay!";
+
     }
     public void UnTriggered(GameObject target)
     {
-        Debug.Log("I am UN-triggered!");
+        //
+        mesh.text = "Not enough mass";
     }
 }
