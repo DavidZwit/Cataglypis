@@ -17,6 +17,7 @@ public class TestObjectThatsTriggered : MonoBehaviour, ITrigger {
     }
     public void UnTriggered(GameObject target)
     {
-        //mesh.text = "Not enough mass";
+        //
+        mesh.text = "Not enough mass";
     }
 }
