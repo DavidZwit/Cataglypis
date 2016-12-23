@@ -19,7 +19,7 @@ public class Splitting : MonoBehaviour {
 
         GameObject playerWaste = Instantiate(playerObject.gameObject) as GameObject;
 
-        StartCoroutine(CloneBall(playerWaste.GetComponent<CircleCollider2D>()));
+        StartCoroutine(CloneBall(GetComponent<CircleCollider2D>()));
 
         playerWaste.GetComponent<Rigidbody2D>().velocity = playerObject.GetComponent<Rigidbody2D>().velocity.normalized;
 
