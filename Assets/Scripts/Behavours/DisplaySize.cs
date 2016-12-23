@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DisplaySize : MonoBehaviour {
+public class DisplaySize : MonoBehaviour
+{
 
     IsMergeable mergeScript;
     TextMesh score;
@@ -9,10 +10,14 @@ public class DisplaySize : MonoBehaviour {
     [SerializeField]
     private bool randomNaming = true;
     [SerializeField]
-    private int multiplicationfactor = 0;
-    private string unitTerm = "g";
-    [SerializeField]
     private float zOfset = 0f;
+    [SerializeField]
+    metricSize unitTerm = metricSize.unit;
+
+
+
+    string finalName;
+
     void Awake()
     {
         mergeScript = GetComponent<IsMergeable>();
@@ -22,9 +27,9 @@ public class DisplaySize : MonoBehaviour {
     {
         if (randomNaming)
         {
-            multiplicationfactor = Mathf.RoundToInt(-2 + Random.value * 3);
-            GetUnitTerm();
+            unitTerm = ConvertUnit.GetRandomMetricSize();
         }
+
         CreateText();
 
         UpdateSize(mergeScript.size);
@@ -33,11 +38,12 @@ public class DisplaySize : MonoBehaviour {
     void CreateText()
     {
         GameObject labelObject = Instantiate(Resources.Load("Label", typeof(GameObject))) as GameObject;
-        
+
         labelObject.transform.SetParent(gameObject.transform);
-        labelObject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z+ zOfset);
+        labelObject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + zOfset);
 
         score = labelObject.transform.GetChild(0).GetComponent<TextMesh>();
+
     }
 
     void OnEnable()
@@ -50,37 +56,12 @@ public class DisplaySize : MonoBehaviour {
         mergeScript.UpdatedSize -= UpdateSize;
     }
 
-    void UpdateSize (float size)
+    void UpdateSize(float size)
     {
-        Debug.Log(size+"|"+ Mathf.Pow(10, multiplicationfactor));
-        score.text = (Mathf.Round( size*Mathf.Pow(10, -multiplicationfactor) *100)/100).ToString()+unitTerm;
+        if (randomNaming == true)
+            unitTerm = ConvertUnit.GetRandomMetricSize();
+
+        score.text = ConvertUnit.GetConverted(size, unitTerm);
         score.offsetZ = .1f;
-    }
-    void GetUnitTerm()
-    {
-        switch (multiplicationfactor)
-        {
-            case -3:
-                unitTerm = "mg";
-                break;
-            case -2:
-                unitTerm = "cg";
-                break;
-            case -1:
-                unitTerm = "dg";
-                break;
-            case 0:
-                unitTerm = "g";
-                break;
-            case 1:
-                unitTerm = "dag";
-                break;
-            case 2:
-                unitTerm = "hg";
-                break;
-            case 3:
-                unitTerm = "kg";
-                break;
-        }
     }
 }
