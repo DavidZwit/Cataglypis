@@ -13,7 +13,8 @@ public class DisplaySize : MonoBehaviour
     private float zOfset = 0f;
     [SerializeField]
     metricSize unitTerm = metricSize.unit;
-
+    [SerializeField]
+    private bool leftSide = false;
 
 
     string finalName;
@@ -37,8 +38,11 @@ public class DisplaySize : MonoBehaviour
 
     void CreateText()
     {
-        GameObject labelObject = Instantiate(Resources.Load("Label", typeof(GameObject))) as GameObject;
-
+        GameObject labelObject;
+        if(leftSide)
+            labelObject = Instantiate(Resources.Load("PlayerLabel", typeof(GameObject))) as GameObject;
+        else
+            labelObject = Instantiate(Resources.Load("Label", typeof(GameObject))) as GameObject;
         labelObject.transform.SetParent(gameObject.transform);
         labelObject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + zOfset);
 

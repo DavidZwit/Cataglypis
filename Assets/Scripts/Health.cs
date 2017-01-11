@@ -20,17 +20,17 @@ public class Health : MonoBehaviour {
 	}
     void OnEnable()
     {
-        PlayerMerge.LosingHealth += HealthLost;
+        PlayerMerge.ChangeHealth += ChangeHealth;
     }
 
     void OnDisable()
     {
-        PlayerMerge.LosingHealth -= HealthLost;
+        PlayerMerge.ChangeHealth -= ChangeHealth;
     }
 
-    public void HealthLost()
+    public void ChangeHealth( int value )
     {
-        lives--;
+        lives += value;
         display.UpdateDisplay(lives);
         if (lives <= 0)
         {
