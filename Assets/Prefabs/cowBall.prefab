@@ -16,21 +16,21 @@ GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  serializedVersion: 4
   m_Component:
-  - component: {fileID: 4000012418095844}
-  - component: {fileID: 33000011134554060}
-  - component: {fileID: 23000013156534156}
-  - component: {fileID: 58000013392289894}
-  - component: {fileID: 114000012232375442}
-  - component: {fileID: 114000011776047576}
+  - 4: {fileID: 4000012418095844}
+  - 33: {fileID: 33000011134554060}
+  - 23: {fileID: 23000013156534156}
+  - 58: {fileID: 58000013392289894}
+  - 114: {fileID: 114000012232375442}
+  - 114: {fileID: 114000011776047576}
   m_Layer: 0
   m_Name: cowBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4000012418095844
 Transform:
   m_ObjectHideFlags: 1
@@ -40,10 +40,10 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -2.34, y: 2.7, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &23000013156534156
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -58,9 +58,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 3a23a6c56a2867f4b8a2c4ba250ee9c0, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
+  m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
@@ -68,7 +66,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 3
+  m_SelectedWireframeHidden: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -110,6 +108,7 @@ MonoBehaviour:
   randomNaming: 1
   zOfset: 0
   unitTerm: 3
+  leftSide: 0
 --- !u!114 &114000012232375442
 MonoBehaviour:
   m_ObjectHideFlags: 1
