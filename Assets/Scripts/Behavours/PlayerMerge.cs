@@ -5,7 +5,7 @@ public class PlayerMerge : IsMergeable {
 
     public static Action<IsMergeable> IMerged;
     public static Action<IsMergeable> IFailedToMerge;
-    public static Action LosingHealth;
+    public static Action<int>ChangeHealth;
     [SerializeField]
     private float minSize = .1f;
     [SerializeField]
@@ -32,6 +32,8 @@ public class PlayerMerge : IsMergeable {
                 size += otherSize;
                 if (IMerged != null)
                     IMerged(mergeScript);
+                if (mergeScript.gameObject.tag == "HealthPack")
+                    ChangeHealth(1);
             }
             mergeScript.DestroyMe();
         }//grow(), merge and destroy other
@@ -39,7 +41,7 @@ public class PlayerMerge : IsMergeable {
         else if (size < otherSize && size > minSize) {
             if (IFailedToMerge != null)
             {
-                LosingHealth();
+                ChangeHealth(-1);
                 IFailedToMerge(this);
             }
                 
