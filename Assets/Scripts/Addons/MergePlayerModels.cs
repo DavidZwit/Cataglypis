@@ -3,43 +3,27 @@ using System.Collections;
 
 public class MergePlayerModels : MonoBehaviour {
 
-    Mesh myMesh;
-
 	void OnEnable()
     {
-        PlayerMerge.OnMerge += PlayerMerged;
+        PlayerMerge.IMerged += PlayerMerged;
     }
 
     void OnDisable()
     {
-        PlayerMerge.OnMerge -= PlayerMerged;
-    }
-
-    void Awake()
-    {
-        myMesh = Instantiate(GetComponent<MeshFilter>().mesh);
+        PlayerMerge.IMerged-= PlayerMerged;
     }
 
     void PlayerMerged(IsMergeable mergeScript)
     {
-        myMesh = CreateNewMesh(myMesh, mergeScript.myMesh);
-    }
+        if (mergeScript.mergeMesh != null)
+        {
 
-    Mesh CreateNewMesh(Mesh original, Mesh merge)
-    {
+            GameObject mergeStuff = Instantiate(mergeScript.mergeMesh) as GameObject;
 
-        for (var i = 0; i < original.vertexCount; i++) {
-            if (original.vertices[i] != merge.vertices[i])
-            {
-                original.vertices[i] = merge.vertices[i];
-                //original.uv[i] = merge.uv[i];
+            mergeStuff.transform.rotation = Random.rotation;
 
-                //print(original.vertices[i]);
-                print(i);
-            }
+            mergeStuff.transform.parent = gameObject.transform;
         }
-        
-
-        return original;
     }
+
 }

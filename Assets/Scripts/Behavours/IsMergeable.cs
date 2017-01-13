@@ -13,7 +13,8 @@ public class IsMergeable : MonoBehaviour {
      * Still need to get the texture here
     */
     public Texture2D tex;
-    public Mesh myMesh; 
+    [SerializeField]
+    public GameObject mergeMesh; 
     [SerializeField]
     public texType type;
 
@@ -22,7 +23,6 @@ public class IsMergeable : MonoBehaviour {
     void Awake()
     {
         tex = GetComponent<MeshRenderer>().material.mainTexture as Texture2D;
-        myMesh = GetComponent<MeshFilter>().mesh;
     }
 
     void OnCollisionEnter2D (Collision2D coll)
@@ -38,7 +38,7 @@ public class IsMergeable : MonoBehaviour {
                 UpdatedSize(size);
         }
     }
-
+    
     void Merge()
     {
         if(OnMerge!=null)

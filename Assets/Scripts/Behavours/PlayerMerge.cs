@@ -48,6 +48,14 @@ public class PlayerMerge : IsMergeable {
         } //Break into two()
 
         if (UpdatedSize != null)
-            UpdatedSize(size);
+        {
+            foreach (Transform child in GetComponentInChildren<Transform>())
+            {
+                if (child.tag == "Waste") {
+                    print(child);
+                    child.localScale = transform.localScale;
+                }
+            }
+        }
     }
 }
