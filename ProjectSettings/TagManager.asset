@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HealthPack
   - Waste
+  - Bull
   layers:
   - Default
   - TransparentFX

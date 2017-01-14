@@ -53,12 +53,13 @@
      <Compile Include="Assets\Scripts\Behavours\Dash.cs" />
      <Compile Include="Assets\Scripts\Behavours\DisplaySize.cs" />
      <Compile Include="Assets\Scripts\Behavours\FollowObject.cs" />
+     <Compile Include="Assets\Scripts\Behavours\GetDestroyedByBull.cs" />
      <Compile Include="Assets\Scripts\Behavours\Inputs\ChangePosToMouse.cs" />
      <Compile Include="Assets\Scripts\Behavours\Inputs\ChangePosToTouchPos.cs" />
-     <Compile Include="Assets\Scripts\Behavours\IsMergeable.cs" />
-     <Compile Include="Assets\Scripts\Behavours\PlayerMerge.cs" />
      <Compile Include="Assets\Scripts\Behavours\RotateAroundWorld.cs" />
      <Compile Include="Assets\Scripts\Behavours\Splitting.cs" />
+     <Compile Include="Assets\Scripts\Behavours\merging\IsMergeable.cs" />
+     <Compile Include="Assets\Scripts\Behavours\merging\PlayerMerge.cs" />
      <Compile Include="Assets\Scripts\Data\ConvertWeigth.cs" />
      <Compile Include="Assets\Scripts\DestroyAfterTime.cs" />
      <Compile Include="Assets\Scripts\FixScale.cs" />

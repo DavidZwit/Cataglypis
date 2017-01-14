@@ -19,6 +19,7 @@ public class IsMergeable : MonoBehaviour {
     public texType type;
 
     public static Action<IsMergeable> OnMerge;
+    public static Action<IsMergeable, GameObject> HitObject;
 
     void Awake()
     {
@@ -31,12 +32,12 @@ public class IsMergeable : MonoBehaviour {
         try { mergeScript = coll.gameObject.GetComponent<PlayerMerge>(); }
         catch { }
 
-        if (mergeScript != null)
-        {
+        if (mergeScript != null) {
             Merge();
             if (UpdatedSize != null) 
                 UpdatedSize(size);
         }
+        IsMergeable.HitObject(this, coll.gameObject);
     }
     
     void Merge()

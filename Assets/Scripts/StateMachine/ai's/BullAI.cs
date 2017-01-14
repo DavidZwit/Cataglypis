@@ -12,7 +12,7 @@ public class BullAI : MonoBehaviour {
     {
         myBehaviour = new StateMachine(gameObject, StatesEnum.wander);
 
-        myBehaviour.AddState(StatesEnum.intaract, new bullStates.Run(gameObject, target, .02f, 2));
+        myBehaviour.AddState(StatesEnum.intaract, new bullStates.Run(gameObject, target, GetComponent<FollowObject>(), .02f));
         myBehaviour.AddState(StatesEnum.alert, new bullStates.Charge(target, 3));
         myBehaviour.AddState(StatesEnum.wander, new bullStates.Wander(target, 2f, 3));
         myBehaviour.AddState(StatesEnum.retreat, new bullStates.Stun(20));
@@ -27,5 +27,10 @@ public class BullAI : MonoBehaviour {
             myBehaviour.UpdateState();
 
         }
+    }
+
+    void OnDisable()
+    {
+        myBehaviour.StopMachine();
     }
 }

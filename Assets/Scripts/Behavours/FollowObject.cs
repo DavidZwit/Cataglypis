@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class FollowObject : MonoBehaviour {
 
@@ -15,22 +16,39 @@ public class FollowObject : MonoBehaviour {
     public bool follow = true;
 
     private Vector3 distance;
+
+    private Rigidbody2D rb;
+
+    private Func<int> ApplyTranslation;
+
+    void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+    void Start ()
+    {
+        if (rb != null) ApplyTranslation = () => {
+            rb.velocity = distance;
+            return 0;
+        };
+        else ApplyTranslation = () => {
+            gameObject.transform.Translate(distance / stoppingPower);
+            return 0;
+        };
+    }
+
 	void FixedUpdate ()
     {
         if (follow == true && target != null)
         {
-            
             distance = new Vector3(
                 target.transform.position.x - gameObject.transform.position.x,
                 target.transform.position.y - gameObject.transform.position.y,
                 0
              ) + offset;
-            if(!GetComponent<Rigidbody2D>())
-                gameObject.transform.Translate( distance / stoppingPower);
-            else
-            {
-                GetComponent<Rigidbody2D>().velocity = distance;
-            }
+
+            ApplyTranslation();
         }
     }
 

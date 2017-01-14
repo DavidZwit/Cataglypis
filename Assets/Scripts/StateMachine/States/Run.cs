@@ -7,51 +7,52 @@ namespace bullStates
 
         GameObject self;
         GameObject target;
-        IsMergeable playerMerge;
+        FollowObject followScript;
         float speed;
-        float coolDown;
-        float currCooldown;
 
-        public Run(GameObject _self, GameObject _target, float _speed, float _coolDown)
+        bool stopRunning = false;
+
+        void StopRunning(IsMergeable mergeScript, GameObject hitObject)
+        {
+            if (mergeScript.gameObject.tag == "Bull") {
+                stopRunning = true;
+            }
+        }
+
+        public Run(GameObject _self, GameObject _target, FollowObject _followScript, float _speed)
         {
             self = _self;
             target = _target;
             speed = _speed;
-            coolDown = _coolDown;
-
-
+            followScript = _followScript;
         }
 
         public void Enter(GameObject obj, Animation amin)
         {
+            stopRunning = false;
             self = obj;
-            currCooldown = coolDown;
-            playerMerge = self.GetComponent<IsMergeable>();
+            followScript.enabled = true;
+            IsMergeable.HitObject += StopRunning;
         }
-
+         
         public bool Reason()
         {
-            Collider2D collision = Physics2D.OverlapCircle(self.transform.position, 1);
-            if (collision.gameObject == target) {
+            if (stopRunning == true) {
                 return false;
-            } else if (currCooldown <= 0)
-                return false;
+            }
             return true;
         }
 
         public void Act()
         { 
-            currCooldown -= Time.deltaTime;
-
-            self.transform.LookAt(target.transform.position);
-            self.transform.Translate(self.transform.forward * speed);
+            
         }
 
         public StatesEnum Leave()
         {
-            if (/*hit something)*/false)
-                return StatesEnum.retreat;
-            else return StatesEnum.wander;
+            IsMergeable.HitObject += StopRunning;
+            followScript.enabled = false;
+            return StatesEnum.wander;
         }
     }
 }

@@ -52,7 +52,6 @@ public class PlayerMerge : IsMergeable {
             foreach (Transform child in GetComponentInChildren<Transform>())
             {
                 if (child.tag == "Waste") {
-                    print(child);
                     child.localScale = transform.localScale;
                 }
             }
