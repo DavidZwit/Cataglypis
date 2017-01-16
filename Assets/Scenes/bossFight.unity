@@ -1094,21 +1094,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1736513181199850, guid: aa2059698fb4f2f4492f6ebb18a41b45,
     type: 2}
   m_PrefabInternal: {fileID: 67549143}
---- !u!114 &2050002918
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2050002917}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66c00360ced9c994c993423d670dccb4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stoppingPower: 10
-  offset: {x: 0, y: 0, z: 0}
-  target: {fileID: 948877960}
-  follow: 1
 --- !u!50 &2050002919
 Rigidbody2D:
   serializedVersion: 4
@@ -1129,3 +1114,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2050002920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2050002917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32ca5471bcbd3bf4294150d97e146e94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5

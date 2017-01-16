@@ -33,11 +33,13 @@ public class MergePlayerTextures : MonoBehaviour {
         Texture tex = mergeScript.tex;
         texType type = mergeScript.type;
 
-        myMaterial.mainTexture = MergeNewTex(
-            myMaterial.mainTexture as Texture2D, 
-            tex as Texture2D, 
-            highlightTextures[(int)type] as Texture2D
-         ) as Texture;
+        if (tex != null) {
+            myMaterial.mainTexture = MergeNewTex(
+                myMaterial.mainTexture as Texture2D,
+                tex as Texture2D,
+                highlightTextures[(int)type] as Texture2D
+             ) as Texture;
+        }
     }
 
     Texture2D MergeNewTex(Texture2D baseTex, Texture2D mergeTex, Texture2D highlightMap)

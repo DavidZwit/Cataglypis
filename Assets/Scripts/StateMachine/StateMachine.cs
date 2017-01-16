@@ -38,7 +38,7 @@ class StateMachine {
         if (currentState.Reason()) {
             currentState.Act();
         } else {
-            Debug.Log(currentState.Leave());
+
             try { currentState = States[currentState.Leave()]; }
             catch { currentState = States[defaultState]; }
 

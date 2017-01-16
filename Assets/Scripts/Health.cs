@@ -35,7 +35,7 @@ public class Health : MonoBehaviour {
         if (lives <= 0)
         {
             Instantiate(deathParticle, transform.position, Quaternion.identity);
-            Lost();
+            if (Lost != null) Lost();
             Destroy(gameObject);
         }
     }

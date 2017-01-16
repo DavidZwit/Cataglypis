@@ -8,6 +8,7 @@ namespace bullStates
         GameObject self;
         GameObject target;
         FollowObject followScript;
+        Rigidbody2D rb;
         float speed;
 
         bool stopRunning = false;
@@ -19,22 +20,25 @@ namespace bullStates
             }
         }
 
-        public Run(GameObject _self, GameObject _target, FollowObject _followScript, float _speed)
+        public Run(GameObject _self, GameObject _target, FollowObject _followScript, Rigidbody2D _rb, float _speed)
         {
             self = _self;
             target = _target;
             speed = _speed;
             followScript = _followScript;
+            rb = _rb;
         }
 
         public void Enter(GameObject obj, Animation amin)
         {
             stopRunning = false;
             self = obj;
-            followScript.enabled = true;
             IsMergeable.HitObject += StopRunning;
+
+            rb.AddForce((target.transform.position - self.transform.position).normalized * speed);
+
         }
-         
+
         public bool Reason()
         {
             if (stopRunning == true) {
@@ -44,14 +48,13 @@ namespace bullStates
         }
 
         public void Act()
-        { 
-            
+        {
+
         }
 
         public StatesEnum Leave()
         {
             IsMergeable.HitObject += StopRunning;
-            followScript.enabled = false;
             return StatesEnum.wander;
         }
     }
