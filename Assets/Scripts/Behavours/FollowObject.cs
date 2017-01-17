@@ -50,5 +50,8 @@ public class FollowObject : MonoBehaviour {
         ApplyTranslation();
     }
 
-    public Vector3 Distance => distance;
+    public Vector3 Distance
+    {
+        get { return distance; }
+    }
 }
