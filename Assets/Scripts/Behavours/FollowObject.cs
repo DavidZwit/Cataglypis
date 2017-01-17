@@ -13,7 +13,7 @@ public class FollowObject : MonoBehaviour {
     [SerializeField]
     GameObject target;
 
-    public bool follow = true;
+    public bool Follow = true;
 
     private Vector3 distance;
 
@@ -40,22 +40,15 @@ public class FollowObject : MonoBehaviour {
 
 	void FixedUpdate ()
     {
-        if (follow == true && target != null)
-        {
-            distance = new Vector3(
-                target.transform.position.x - gameObject.transform.position.x,
-                target.transform.position.y - gameObject.transform.position.y,
-                0
-             ) + offset;
+        if (Follow != true || target == null) return;
+        distance = new Vector3(
+                       target.transform.position.x - gameObject.transform.position.x,
+                       target.transform.position.y - gameObject.transform.position.y,
+                       0
+                   ) + offset;
 
-            ApplyTranslation();
-        }
+        ApplyTranslation();
     }
 
-    public Vector3 Distance
-    {
-        get { return distance; }
-    }
-    
-   
+    public Vector3 Distance => distance;
 }
