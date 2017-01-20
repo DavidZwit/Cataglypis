@@ -70,18 +70,23 @@
     <Compile Include="Assets\Scripts\Behavours\Dash.cs" />
     <Compile Include="Assets\Scripts\Behavours\DisplaySize.cs" />
     <Compile Include="Assets\Scripts\Behavours\FollowObject.cs" />
+    <Compile Include="Assets\Scripts\Behavours\GetDestroyedByBull.cs" />
     <Compile Include="Assets\Scripts\Behavours\Inputs\ChangePosToMouse.cs" />
     <Compile Include="Assets\Scripts\Behavours\Inputs\ChangePosToTouchPos.cs" />
-    <Compile Include="Assets\Scripts\Behavours\IsMergeable.cs" />
-    <Compile Include="Assets\Scripts\Behavours\PlayerMerge.cs" />
     <Compile Include="Assets\Scripts\Behavours\RotateAroundWorld.cs" />
     <Compile Include="Assets\Scripts\Behavours\Splitting.cs" />
+    <Compile Include="Assets\Scripts\Behavours\merging\IsMergeable.cs" />
+    <Compile Include="Assets\Scripts\Behavours\merging\PlayerMerge.cs" />
+    <Compile Include="Assets\Scripts\CameraShake.cs" />
     <Compile Include="Assets\Scripts\Data\ConvertWeigth.cs" />
     <Compile Include="Assets\Scripts\DestroyAfterTime.cs" />
     <Compile Include="Assets\Scripts\FixScale.cs" />
     <Compile Include="Assets\Scripts\FixedRotation.cs" />
     <Compile Include="Assets\Scripts\Health.cs" />
+    <Compile Include="Assets\Scripts\Lightning.cs" />
+    <Compile Include="Assets\Scripts\Narrative\TreeEvents.cs" />
     <Compile Include="Assets\Scripts\PlayerParticles.cs" />
+    <Compile Include="Assets\Scripts\RandomizeWeights.cs" />
     <Compile Include="Assets\Scripts\Scenes\SceneLoader.cs" />
     <Compile Include="Assets\Scripts\SettingTimeScale.cs" />
     <Compile Include="Assets\Scripts\StateMachine\NavigatorInterface.cs" />
@@ -92,10 +97,14 @@
     <Compile Include="Assets\Scripts\StateMachine\States\Stun.cs" />
     <Compile Include="Assets\Scripts\StateMachine\States\Wander.cs" />
     <Compile Include="Assets\Scripts\StateMachine\ai&apos;s\BullAI.cs" />
+    <Compile Include="Assets\Scripts\TransitionBetweenScenes.cs" />
+    <Compile Include="Assets\Scripts\TriggerEvents\ColliderEvent.cs" />
     <Compile Include="Assets\Scripts\TriggerEvents\Door.cs" />
     <Compile Include="Assets\Scripts\TriggerEvents\ITrigger.cs" />
     <Compile Include="Assets\Scripts\TriggerEvents\PressurPlate.cs" />
     <Compile Include="Assets\Scripts\TriggerEvents\TestObjectThatsTriggered.cs" />
+    <Compile Include="Assets\Scripts\UI\DialogueData.cs" />
+    <Compile Include="Assets\Scripts\UI\DialogueManager.cs" />
     <Compile Include="Assets\Scripts\UI\DisplayHealth.cs" />
   </ItemGroup>
   <ItemGroup>
