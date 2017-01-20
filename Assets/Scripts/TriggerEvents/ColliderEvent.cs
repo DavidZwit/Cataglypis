@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.EventSystems;
-public class PressurPlate : MonoBehaviour {
+public class ColliderEvent : MonoBehaviour
+{
 
     [SerializeField]
     private GameObject target;
@@ -12,9 +13,9 @@ public class PressurPlate : MonoBehaviour {
     private int maxWeight;
 
     private PlayerMerge mergeScript;
-    void OnTriggerEnter2D(Collider2D coll)
+    void OnCollisionEnter2D(Collision2D coll)
     {
-        mergeScript = coll.GetComponent<PlayerMerge>();
+        mergeScript = coll.gameObject.GetComponent<PlayerMerge>();
         if (mergeScript != null)
         {
             if (mergeScript.size >= minWeight && mergeScript.size <= maxWeight)
@@ -23,7 +24,7 @@ public class PressurPlate : MonoBehaviour {
                 ExecuteEvents.Execute<ITrigger>(target, null, (x, y) => x.FailingTrigger(target));
         }
     }
-    void OnTriggerExit2D(Collider2D coll)
+    void OnCollisionExit2D(Collision2D coll)
     {
         if (mergeScript != null)
             ExecuteEvents.Execute<ITrigger>(target, null, (x, y) => x.UnTriggered(target));

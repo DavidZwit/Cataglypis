@@ -29,8 +29,6 @@ public class FollowObject : MonoBehaviour {
 
     void Start ()
     {
-
-
         if (rb != null) ApplyTranslation = () => {
             rb.velocity = distance;
             return 0;

@@ -23,7 +23,9 @@ public class IsMergeable : MonoBehaviour {
 
     void Awake()
     {
-        tex = GetComponent<MeshRenderer>().material.mainTexture as Texture2D;
+        try {
+            tex = GetComponent<MeshRenderer>().material.mainTexture as Texture2D;
+        } catch { }
     }
 
     void OnCollisionEnter2D (Collision2D coll)
@@ -37,7 +39,12 @@ public class IsMergeable : MonoBehaviour {
             if (UpdatedSize != null) 
                 UpdatedSize(size);
         }
-        IsMergeable.HitObject(this, coll.gameObject);
+
+        if (UpdatedSize != null)
+            UpdatedSize(size);
+
+        if (HitObject != null)
+            IsMergeable.HitObject(this, coll.gameObject);
     }
     
     void Merge()

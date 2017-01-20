@@ -60,11 +60,14 @@
      <Compile Include="Assets\Scripts\Behavours\Splitting.cs" />
      <Compile Include="Assets\Scripts\Behavours\merging\IsMergeable.cs" />
      <Compile Include="Assets\Scripts\Behavours\merging\PlayerMerge.cs" />
+     <Compile Include="Assets\Scripts\CameraShake.cs" />
      <Compile Include="Assets\Scripts\Data\ConvertWeigth.cs" />
      <Compile Include="Assets\Scripts\DestroyAfterTime.cs" />
      <Compile Include="Assets\Scripts\FixScale.cs" />
      <Compile Include="Assets\Scripts\FixedRotation.cs" />
      <Compile Include="Assets\Scripts\Health.cs" />
+     <Compile Include="Assets\Scripts\Lightning.cs" />
+     <Compile Include="Assets\Scripts\Narrative\TreeEvents.cs" />
      <Compile Include="Assets\Scripts\PlayerParticles.cs" />
      <Compile Include="Assets\Scripts\RandomizeWeights.cs" />
      <Compile Include="Assets\Scripts\Scenes\SceneLoader.cs" />
@@ -77,18 +80,19 @@
      <Compile Include="Assets\Scripts\StateMachine\States\Stun.cs" />
      <Compile Include="Assets\Scripts\StateMachine\States\Wander.cs" />
      <Compile Include="Assets\Scripts\StateMachine\ai&apos;s\BullAI.cs" />
+     <Compile Include="Assets\Scripts\TransitionBetweenScenes.cs" />
+     <Compile Include="Assets\Scripts\TriggerEvents\ColliderEvent.cs" />
      <Compile Include="Assets\Scripts\TriggerEvents\Door.cs" />
      <Compile Include="Assets\Scripts\TriggerEvents\ITrigger.cs" />
      <Compile Include="Assets\Scripts\TriggerEvents\PressurPlate.cs" />
      <Compile Include="Assets\Scripts\TriggerEvents\TestObjectThatsTriggered.cs" />
+     <Compile Include="Assets\Scripts\UI\DialogueData.cs" />
+     <Compile Include="Assets\Scripts\UI\DialogueManager.cs" />
      <Compile Include="Assets\Scripts\UI\DisplayHealth.cs" />
      <None Include="Assets\Materials\Outlined-Silhouette Only.shader" />
      <None Include="Assets\Materials\TSFOutline.shader" />
      <None Include="Assets\Materials\TSF.shader" />
      <None Include="Assets\Scripts\Addons\Shaders\RollingShader.shader" />
- <Reference Include="UnityEngine.Advertisements">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Advertisements/UnityEngine.Advertisements.dll</HintPath>
- </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
@@ -103,9 +107,6 @@
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Purchasing">
- <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.VR">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>

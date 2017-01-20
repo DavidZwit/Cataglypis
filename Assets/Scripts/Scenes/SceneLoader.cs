@@ -1,27 +1,16 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour {
+public static class SceneLoader {
 
-    void OnEnable()
-    {
-        Health.Lost += ReloadScene;
-    }
-
-    void OnDisable()
-    {
-        Health.Lost -= ReloadScene;
-    }
-    public void LoadNewScene(string scene)
+    public static void LoadNewScene(string scene)
     {
         SceneManager.LoadScene(scene);
     }
-
-    public void LoadNextScene()
+    public static void LoadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    public void ReloadScene()
+    public static void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

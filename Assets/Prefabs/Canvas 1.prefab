@@ -128,7 +128,6 @@ GameObject:
   - component: {fileID: 114962892166684890}
   - component: {fileID: 114854990529749214}
   - component: {fileID: 114515226673729886}
-  - component: {fileID: 114950571644716642}
   m_Layer: 5
   m_Name: Canvas 1
   m_TagString: Untagged
@@ -553,17 +552,6 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 1, b: 1, a: 1}
   m_EffectDistance: {x: 4.5, y: 2.52}
   m_UseGraphicAlpha: 1
---- !u!114 &114950571644716642
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1966342503650652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e643eb6d9cc0e489a5b0b163244cbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114962892166684890
 MonoBehaviour:
   m_ObjectHideFlags: 1
