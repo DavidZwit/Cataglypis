@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 
+
 public class FollowObject : MonoBehaviour {
 
     [SerializeField]
@@ -28,6 +29,8 @@ public class FollowObject : MonoBehaviour {
 
     void Start ()
     {
+
+
         if (rb != null) ApplyTranslation = () => {
             rb.velocity = distance;
             return 0;
@@ -40,6 +43,7 @@ public class FollowObject : MonoBehaviour {
 
 	void FixedUpdate ()
     {
+
         if (Follow != true || target == null) return;
         distance = new Vector3(
                        target.transform.position.x - gameObject.transform.position.x,
