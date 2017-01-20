@@ -13,10 +13,8 @@ public class Health : MonoBehaviour {
     private GameObject deathParticle;
     public static Action Lost;
 	void Start () {
-
         lives = maxLives;
         display.UpdateDisplay(lives);
-
 	}
     void OnEnable()
     {
@@ -35,7 +33,7 @@ public class Health : MonoBehaviour {
         if (lives <= 0)
         {
             Instantiate(deathParticle, transform.position, Quaternion.identity);
-            Lost();
+            SceneLoader.ReloadScene();
             Destroy(gameObject);
         }
     }

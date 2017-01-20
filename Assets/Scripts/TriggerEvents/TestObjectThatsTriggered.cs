@@ -10,16 +10,18 @@ public class TestObjectThatsTriggered : MonoBehaviour, ITrigger {
     {
         mesh = GetComponent<TextMesh>();
         mesh.text = "Not enough mass";
-        //door.Open();
     }
     public void Triggered(GameObject target)
     {
-        mesh.text = "";
+        mesh.text = "You got it!";
         door.Open();
     }
     public void UnTriggered(GameObject target)
     {
+        mesh.text = "";
+    }
+    public void FailingTrigger(GameObject target)
+    {
         mesh.text = "Not enough mass";
-
     }
 }

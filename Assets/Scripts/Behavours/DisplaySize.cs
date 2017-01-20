@@ -45,7 +45,7 @@ public class DisplaySize : MonoBehaviour
             labelObject = Instantiate(Resources.Load("Label", typeof(GameObject))) as GameObject;
         labelObject.transform.SetParent(gameObject.transform);
         labelObject.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + zOfset);
-
+        
         score = labelObject.transform.GetChild(0).GetComponent<TextMesh>();
 
     }

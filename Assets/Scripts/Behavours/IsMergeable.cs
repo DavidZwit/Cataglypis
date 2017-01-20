@@ -21,8 +21,9 @@ public class IsMergeable : MonoBehaviour {
 
     void Awake()
     {
-        tex = GetComponent<MeshRenderer>().material.mainTexture as Texture2D;
-        myMesh = GetComponent<MeshFilter>().mesh;
+        if(GetComponent<MeshRenderer>())
+            tex = GetComponent<MeshRenderer>().material.mainTexture as Texture2D;
+        //myMesh = GetComponent<MeshFilter>().mesh;
     }
 
     void OnCollisionEnter2D (Collision2D coll)

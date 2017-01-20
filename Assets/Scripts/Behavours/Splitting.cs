@@ -21,7 +21,7 @@ public class Splitting : MonoBehaviour {
 
         StartCoroutine(CloneBall(GetComponent<CircleCollider2D>()));
 
-        playerWaste.GetComponent<Rigidbody2D>().velocity = playerObject.GetComponent<Rigidbody2D>().velocity.normalized;
+        playerWaste.GetComponent<Rigidbody2D>().velocity = playerObject.GetComponent<Rigidbody2D>().velocity.normalized/2;
 
         foreach (MonoBehaviour script in playerWaste.GetComponents<MonoBehaviour>())
             Destroy(script);

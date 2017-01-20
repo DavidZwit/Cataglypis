@@ -1,25 +1,42 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Stun : State {
+namespace bullStates
+{
+    public class Stun : State {
 
-    public void Enter(GameObject obj, Animation amin)
-    {
+        GameObject self;
+        float stunTime;
+        float currStunTime;
 
+        public Stun (float _stunTime)
+        {
+            stunTime = _stunTime;
+        }
+
+        public void Enter(GameObject obj, Animation amin)
+        {
+            self = obj;
+            currStunTime = stunTime;
+        }
+
+        public bool Reason()
+        {
+            if (currStunTime <= 0)
+                return false;
+            else return true;
+        }
+
+        public void Act()
+        {
+            stunTime -= Time.deltaTime;
+            //play stunn animation
+        }
+
+        public StatesEnum Leave()
+        {
+            return StatesEnum.idle;
+        }
     }
 
-    public bool Reason()
-    {
-        return false;
-    }
-
-    public void Act()
-    {
-
-    }
-
-    public StatesEnum Leave()
-    {
-        return StatesEnum.idle;
-    }
 }

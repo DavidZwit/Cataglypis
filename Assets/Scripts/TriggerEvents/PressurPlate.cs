@@ -17,11 +17,10 @@ public class PressurPlate : MonoBehaviour {
         mergeScript = coll.GetComponent<PlayerMerge>();
         if (mergeScript != null)
         {
-            Debug.Log("trigger enter");
             if (mergeScript.size >= minWeight && mergeScript.size <= maxWeight)
-            {
                 ExecuteEvents.Execute<ITrigger>(target, null, (x, y) => x.Triggered(target));
-            }
+            else
+                ExecuteEvents.Execute<ITrigger>(target, null, (x, y) => x.FailingTrigger(target));
         }
     }
     void OnTriggerExit2D(Collider2D coll)
