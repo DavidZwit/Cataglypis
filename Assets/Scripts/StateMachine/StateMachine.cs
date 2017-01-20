@@ -38,11 +38,20 @@ class StateMachine {
         if (currentState.Reason()) {
             currentState.Act();
         } else {
+<<<<<<< HEAD
             Debug.Log("Changing state to" + States[currentState.Leave()]);
+=======
+
+>>>>>>> 0338a62af52ffacac2550274bed7f6d0fc34e3c5
             try { currentState = States[currentState.Leave()]; }
             catch { currentState = States[defaultState]; }
 
             currentState.Enter(obj, anim);
         }
+    }
+
+    public void StopMachine()
+    {
+        currentState.Leave();
     }
 }
