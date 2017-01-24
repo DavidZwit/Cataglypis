@@ -14,8 +14,8 @@ public enum metricSize
 public class ConvertUnit
 {
 
-    static string toMili(float val) { return val * 100 + "m"; }
-    static string toCenti(float val) { return val * 10 + "c"; }
+    static string toMili(float val) { return val * 1000 + "m"; }
+    static string toCenti(float val) { return val * 100 + "c"; }
     static string toDeci(float val) { return val * 10 + "d"; }
     static string toUnit(float val) { return val + ""; }
     static string toDeca(float val) { return val * .1f + "da"; }

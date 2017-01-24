@@ -20,10 +20,6 @@ public class DialogueManager : MonoBehaviour {
     private bool inDialogue = false;
     private bool goToNextLine = false;
 
-	void Start () {
-        //StartCoroutine(WritingDialogue(DialogueData.dialogueLines1));
-	}
-
     void Update()
     {
         if (inDialogue)
@@ -46,17 +42,17 @@ public class DialogueManager : MonoBehaviour {
         {
             for (int i = 0; i < dialogue.Length; i++)
             {
-                if (dialogue[i].name == DialogueData.Wizcat)
-                {
-                    dialogueText.alignment = characterText.alignment = TextAnchor.UpperLeft;
-                    leftCharacterImage.sprite = Resources.Load<Sprite>(dialogue[i].art);
-                }
-                else
+                leftCharacterImage.sprite = rightCharacterImage.sprite = Resources.Load<Sprite>("none");
+                if (dialogue[i].allignmentRight)
                 {
                     dialogueText.alignment = characterText.alignment = TextAnchor.UpperRight;
                     rightCharacterImage.sprite = Resources.Load<Sprite>(dialogue[i].art);
                 }
-
+                else
+                {
+                    dialogueText.alignment = characterText.alignment = TextAnchor.UpperLeft;
+                    leftCharacterImage.sprite = Resources.Load<Sprite>(dialogue[i].art);
+                }
 
                 characterText.text = dialogue[i].name;
                 StartCoroutine(WritingLine(dialogue[i].line));

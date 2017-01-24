@@ -30,9 +30,9 @@ GameObject:
   - component: {fileID: 114000011077986810}
   - component: {fileID: 114000013122088044}
   - component: {fileID: 114000011996715270}
-  - component: {fileID: 114000012589381274}
   - component: {fileID: 114000012712762936}
   - component: {fileID: 114000013681569946}
+  - component: {fileID: 114475767614870646}
   m_Layer: 0
   m_Name: playerBall
   m_TagString: Untagged
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 1
   tex: {fileID: 0}
-  myMesh: {fileID: 0}
+  mergeMesh: {fileID: 0}
   type: 1
   minSize: 0.1
   maxSize: 50
@@ -200,7 +200,7 @@ MonoBehaviour:
   stoppingPower: 10
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
-  follow: 1
+  Follow: 1
 --- !u!114 &114000011996715270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -232,18 +232,7 @@ MonoBehaviour:
   randomNaming: 0
   zOfset: 0
   unitTerm: 3
-  leftSide: 0
---- !u!114 &114000012589381274
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1000013667687172}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa18982ff5c41c246ba3ff4c9f89203a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  leftSide: 1
 --- !u!114 &114000012651551726
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -294,6 +283,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!114 &114475767614870646
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013667687172}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa18982ff5c41c246ba3ff4c9f89203a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198000013822238318
 ParticleSystem:
   m_ObjectHideFlags: 1
