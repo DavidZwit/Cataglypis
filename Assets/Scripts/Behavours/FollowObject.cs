@@ -49,7 +49,7 @@ public class FollowObject : MonoBehaviour {
                        0
                    ) + offset;
 
-        ApplyTranslation();
+        if (ApplyTranslation != null)ApplyTranslation();
     }
 
     public Vector3 Distance

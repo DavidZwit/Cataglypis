@@ -18,10 +18,15 @@ public class ChangePosToMouse : MonoBehaviour {
     {
         if (Input.GetMouseButton(0) != true) return;
 
-            Vector2 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
-            gameObject.transform.position = mousePos;
+        Vector2 mouseWorldPos = camera.ScreenToWorldPoint(Input.mousePosition);
 
-            if (Input.GetMouseButtonDown(0) == true && tapParticle != null)
-                Instantiate(tapParticle, transform.position, Quaternion.identity);
+
+
+        gameObject.transform.position = (Vector3) mouseWorldPos;
+
+
+        if (Input.GetMouseButtonDown(0) == true && tapParticle != null)
+                Instantiate(tapParticle, mouseWorldPos, Quaternion.identity);
+
     }
 }

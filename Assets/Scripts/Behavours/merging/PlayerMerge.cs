@@ -11,7 +11,6 @@ public class PlayerMerge : IsMergeable {
     [SerializeField]
     private float maxSize = 2;
 
-
     void OnEnable()
     {
         IsMergeable.OnMerge += MergeHappend;
@@ -24,35 +23,43 @@ public class PlayerMerge : IsMergeable {
 
     void MergeHappend(IsMergeable mergeScript)
     {
-        float otherSize = mergeScript.size;
-        Texture2D otherTexture = mergeScript.tex;
-
-        if (size >= otherSize) {
-            if (size < maxSize) {
-                size += otherSize;
-                if (IMerged != null)
-                    IMerged(mergeScript);
-                if (mergeScript.gameObject.tag == "HealthPack")
-                    ChangeHealth(1);
-            }
-            mergeScript.DestroyMe();
-        }//grow(), merge and destroy other
-
-        else if (size < otherSize && size > minSize) {
-            if (IFailedToMerge != null)
-            {
-                ChangeHealth(-1);
-                IFailedToMerge(this);
-            }
-                
-        } //Break into two()
-
-        if (UpdatedSize != null)
+        if (CanMerge == true)
         {
-            foreach (Transform child in GetComponentInChildren<Transform>())
+            float otherSize = mergeScript.size;
+            Texture2D otherTexture = mergeScript.tex;
+
+            if (size >= otherSize)
             {
-                if (child.tag == "Waste") {
-                    child.localScale = transform.localScale;
+                if (size < maxSize)
+                {
+                    size += otherSize;
+                    if (IMerged != null)
+                        IMerged(mergeScript);
+                    if (mergeScript.gameObject.tag == "HealthPack")
+                        ChangeHealth(1);
+                }
+                mergeScript.DestroyMe();
+            } //grow(), merge and destroy other
+
+            else if (size > minSize)
+            {
+                if (IFailedToMerge != null)
+                {
+                    ChangeHealth(-1);
+                    IFailedToMerge(this);
+                }
+
+            } //Break into two()
+
+            if (UpdatedSize != null)
+            {
+                UpdatedSize(size);
+                foreach (Transform child in GetComponentInChildren<Transform>())
+                {
+                    if (child.tag == "Waste")
+                    {
+                        child.localScale = transform.localScale;
+                    }
                 }
             }
         }
