@@ -21,6 +21,8 @@ public class IsMergeable : MonoBehaviour {
     public static Action<IsMergeable> OnMerge;
     public static Action<IsMergeable, GameObject> HitObject;
 
+    public bool CanMerge { get; set; }
+
     void Awake()
     {
         try {
