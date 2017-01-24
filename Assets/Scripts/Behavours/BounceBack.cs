@@ -13,8 +13,6 @@ public class BounceBack : MonoBehaviour {
     }
     public void SetPosition(IsMergeable mergeScript)
     {
-        Vector3 mergepos = mergeScript.gameObject.transform.position;
-        Vector3 distance = new Vector3(mergepos.x - transform.position.x, mergepos.y - transform.position.y, 0).normalized;
-        transform.position = mergepos + distance;
+        
     }
 }
