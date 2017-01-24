@@ -25,7 +25,7 @@ public class CowRandomValueSpawner : MonoBehaviour
         {
             int j = Random.Range(0, spawnPoints.Count);
             GameObject tempObject = Instantiate(cowObject, spawnPoints[j].position, Quaternion.identity) as GameObject;
-            tempObject.GetComponent<IsMergeable>().Size = numbers[i];
+            tempObject.GetComponent<IsMergeable>().size = numbers[i];
             spawnPoints.Remove(spawnPoints[j]);
         }
     }
