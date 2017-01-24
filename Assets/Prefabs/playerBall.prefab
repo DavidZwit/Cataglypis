@@ -33,6 +33,8 @@ GameObject:
   - component: {fileID: 114000012712762936}
   - component: {fileID: 114000013681569946}
   - component: {fileID: 114475767614870646}
+  - component: {fileID: 114759475784215202}
+  - component: {fileID: 114501887751460512}
   m_Layer: 0
   m_Name: playerBall
   m_TagString: Untagged
@@ -192,7 +194,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013667687172}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66c00360ced9c994c993423d670dccb4, type: 3}
   m_Name: 
@@ -294,6 +296,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa18982ff5c41c246ba3ff4c9f89203a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114501887751460512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013667687172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50133bf7ba459da4799cd3c52158ea32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashFlickSpeed: 0.2
+--- !u!114 &114759475784215202
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000013667687172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9df1f14de26aaf34ba8cfeeba12e629e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 1
+  dashSpeed: 5
+  dashCooldownTime: 0.3
 --- !u!198 &198000013822238318
 ParticleSystem:
   m_ObjectHideFlags: 1
