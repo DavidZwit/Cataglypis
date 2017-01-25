@@ -18,9 +18,9 @@ public class EntityMovement : MonoBehaviour
 
     private Action<Vector3, float> applyTranslation;
 
-    private WaitForFixedUpdate fixedUpdate = new WaitForFixedUpdate();
+    private readonly WaitForFixedUpdate _fixedUpdate = new WaitForFixedUpdate();
 
-    private Coroutine dashCoolDown;
+    private Coroutine _dashCoolDown;
 
     void Awake()
     {
@@ -43,22 +43,26 @@ public class EntityMovement : MonoBehaviour
 
     public void Dash(Vector2 clickPos, float speed)
     {
-        applyTranslation(clickPos, dashSpeed);
+
+        if (applyTranslation != null)
+            applyTranslation(clickPos, dashSpeed);
         mergeScript.CanMerge = true;
 
         if (rb != null)
         {
-            if (dashCoolDown != null) dashCoolDown = null;
-            dashCoolDown = StartCoroutine(DashCoolDown());
+            if (_dashCoolDown != null) _dashCoolDown = null;
+            print(_dashCoolDown);
+            _dashCoolDown = StartCoroutine(DashCoolDown());
         }
 
     }
 
     public void MoveTo(Vector3 clickPos)
     {
-        if (mergeScript.CanMerge == false || currDashCooldownTime < 0) {
+        //if (mergeScript.CanMerge == false || currDashCooldownTime <= 0) {
+        if (Vector2.Distance(transform.position, clickPos) > .2)
             applyTranslation(clickPos, movementSpeed);
-        }
+        //}
     }
 
     IEnumerator DashCoolDown()
@@ -68,11 +72,11 @@ public class EntityMovement : MonoBehaviour
             currDashCooldownTime -= Time.deltaTime;
 
             if (mergeScript.CanMerge == false) break;
-            yield return fixedUpdate;
+            yield return _fixedUpdate;
         }
 
         mergeScript.CanMerge = false;
-        dashCoolDown = null;
+        _dashCoolDown = null;
     }
 
     IEnumerator MoveEnitity (Vector3 dest)
@@ -80,7 +84,7 @@ public class EntityMovement : MonoBehaviour
         while (transform.position != dest)
         {
             transform.Translate(dest / movementSpeed);
-            yield return fixedUpdate;
+            yield return _fixedUpdate;
         }
     }
 

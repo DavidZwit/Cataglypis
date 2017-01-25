@@ -711,9 +711,39 @@ Prefab:
     - target: {fileID: 114000011105347922, guid: 7d4271cc91bbb8f4b9fc8647f0358edd,
         type: 2}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114000012443586370, guid: 7d4271cc91bbb8f4b9fc8647f0358edd,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114501887751460512, guid: 7d4271cc91bbb8f4b9fc8647f0358edd,
+        type: 2}
+      propertyPath: dashFlickSpeed
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 114501887751460512, guid: 7d4271cc91bbb8f4b9fc8647f0358edd,
+        type: 2}
+      propertyPath: maxFingerMoveSpeed
+      value: 0.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 114759475784215202, guid: 7d4271cc91bbb8f4b9fc8647f0358edd,
+        type: 2}
+      propertyPath: dashCooldownTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114759475784215202, guid: 7d4271cc91bbb8f4b9fc8647f0358edd,
+        type: 2}
+      propertyPath: movementSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114501887751460512, guid: 7d4271cc91bbb8f4b9fc8647f0358edd,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114759475784215202, guid: 7d4271cc91bbb8f4b9fc8647f0358edd,
         type: 2}
       propertyPath: m_Enabled
       value: 0
