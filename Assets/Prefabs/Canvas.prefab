@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 224000010906513894}
   - component: {fileID: 114000010374441082}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: lightning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -350,6 +350,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.2
   lightningImage: {fileID: 1000011152536854}
+  lightningAnimation: {fileID: 1963431905542738, guid: 8ef110a45b4ced04b84faa00638e11be,
+    type: 2}
+  spwanPosition: {fileID: 0}
 --- !u!114 &114000010432138650
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -676,7 +679,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.39792383, g: 0.5492036, b: 0.8455882, a: 0.547}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.547}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

@@ -22,7 +22,10 @@ public class DialogueData {
     public static string Mysterious = "Mysterious Narrator";
     public static string UI = "Notification";
 
-    public static DialogueStruct[] dialogueLines1 = new DialogueStruct[]
+    /// <summary>
+    /// Tutorial dialogue-----------------------------------------
+    /// </summary>
+    public static DialogueStruct[] tutorial1 = new DialogueStruct[]
     {
         new DialogueStruct(Wizcat, "Hello human. Or should I say ball…","Wizcat", false),
         new DialogueStruct(Wizcat, "You are stuck in the WizCat Nightmare","Wizcat",false),
@@ -31,7 +34,7 @@ public class DialogueData {
         new DialogueStruct(UI, "Tap and hold to move around.","none",false),
     };
 
-    public static DialogueStruct[] dialogueLines2 = new DialogueStruct[]
+    public static DialogueStruct[] tutorial2 = new DialogueStruct[]
     {
         new DialogueStruct(Mysterious, "You will need this if you want to stand any chance to end this nightmare.","mysterious",true),
         new DialogueStruct(UI, "You obtained the mass scanner!","none",false),
@@ -39,13 +42,13 @@ public class DialogueData {
         new DialogueStruct(UI, "Swipe to dash in a direction and interact with other balls.","none",false),
     };
 
-    public static DialogueStruct[] dialogueLines3 = new DialogueStruct[]
+    public static DialogueStruct[] tutorial3 = new DialogueStruct[]
     {
         new DialogueStruct(Mysterious, "I had to let you learn by yourself, didn’t I?","mysterious",true),
         new DialogueStruct(Mysterious, "Now don’t make a waste of that scanner I gave you.","mysterious",true),
     };
 
-    public static DialogueStruct[] dialogueLines4 = new DialogueStruct[]
+    public static DialogueStruct[] tutorial4 = new DialogueStruct[]
     {
         new DialogueStruct(Wizcat, "Bwhahaha!","laughingcat", false),
         new DialogueStruct(Wizcat, "You think you can stand a chance against the majestic Tovertree?!","Wizcat", false),
@@ -53,12 +56,32 @@ public class DialogueData {
         new DialogueStruct(Wizcat, "You think you can stand a chance against the majestic Tovertree?!","laughingcat", false),
     };
 
-    public static DialogueStruct[] dialogueLines5 = new DialogueStruct[]
+    public static DialogueStruct[] tutorial5 = new DialogueStruct[]
     {
         new DialogueStruct(Wizcat, "How is it possible?!","Wizcat", false),
         new DialogueStruct(Wizcat, "Your luck is not going to last forever...","Wizcat", false),
-        new DialogueStruct(Wizcat, "In fact, abandon hope if you enter here.","Wizcat", false),
+        new DialogueStruct(Wizcat, "In fact, abandon all your hope!","Wizcat", false),
     };
 
-
+    /// <summary>
+    /// Mainworld dialogue-----------------------------------------
+    /// </summary>
+    public static DialogueStruct[] mainWorld1 = new DialogueStruct[]
+    {
+        new DialogueStruct(Mysterious, "You might be wondering who I might be...","mysterious", false),
+        new DialogueStruct(Mysterious, "I am in fact:....","mysterious", false),
+        new DialogueStruct(Mysterious, "Just a farmer in this nightmare.","mysterious", false),
+        new DialogueStruct(Mysterious, "To get out of here you must go to the mansion to your right and defeat the ultimate ball.","mysterious", false),
+        new DialogueStruct(Mysterious, "And one last tip I can give to you:.","mysterious", false),
+        new DialogueStruct(Mysterious, "'We're all math here!'","mysterious", false),
+    };
+    public static DialogueStruct[] mainWorld2 = new DialogueStruct[]
+    {
+        new DialogueStruct(Mysterious, "You might be wondering who I might be...","mysterious", false),
+        new DialogueStruct(Mysterious, "I am in fact:....","mysterious", false),
+        new DialogueStruct(Mysterious, "Just a farmer in this nightmare.","mysterious", false),
+        new DialogueStruct(Mysterious, "To get out of here you must go to the mansion to your right and defeat the ultimate ball.","mysterious", false),
+        new DialogueStruct(Mysterious, "And one last tip I can give to you:.","mysterious", false),
+        new DialogueStruct(Mysterious, "'We're all math here!'","mysterious", false),
+    };
 }

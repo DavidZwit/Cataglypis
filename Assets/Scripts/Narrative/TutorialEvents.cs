@@ -25,14 +25,16 @@ public class TutorialEvents : MonoBehaviour, ITrigger
     }
     IEnumerator Begin()
     {
+        WaitForFixedUpdate fixedUpdate = new WaitForFixedUpdate();
         yield return new WaitForSeconds(2f);
-        StartCoroutine(dialogueManager.WritingDialogue(DialogueData.dialogueLines1));
+        lightning.Strike(2);
+        dialogueManager.StartDialogue(DialogueData.tutorial1);
         Vector3 playerStartposiiton = player.transform.position;
-        while (player.transform.position.y < playerStartposiiton.y +.4f)
-            yield return new WaitForFixedUpdate();
-        StartCoroutine(dialogueManager.WritingDialogue(DialogueData.dialogueLines2));
+        while (player.transform.position.y < playerStartposiiton.y + 4f)
+            yield return fixedUpdate;
+        dialogueManager.StartDialogue(DialogueData.tutorial2);
         while(dialogueManager.InDialogue)
-            yield return new WaitForFixedUpdate();
+            yield return fixedUpdate;
         player.GetComponent<DisplaySize>().enabled = woolBall.GetComponent<DisplaySize>().enabled= true;
     }
     public void Triggered(GameObject target)
@@ -56,21 +58,31 @@ public class TutorialEvents : MonoBehaviour, ITrigger
     }
     IEnumerator AfterFailingTreeMerge()
     {
-        StartCoroutine(dialogueManager.WritingDialogue(DialogueData.dialogueLines3));
+        WaitForFixedUpdate update = new WaitForFixedUpdate();
+        dialogueManager.StartDialogue(DialogueData.tutorial3);
+
         while (player.size < 0.3)
-            yield return new WaitForFixedUpdate();
+            yield return update;
+
         yield return new WaitForSeconds(1);
+
         lightning.Strike(2);
-        StartCoroutine(dialogueManager.WritingDialogue(DialogueData.dialogueLines4));
+        dialogueManager.StartDialogue(DialogueData.tutorial4);
+
         while (dialogueManager.InDialogue)
-            yield return new WaitForFixedUpdate();
-        lightning.Strike(2);
+            yield return update;
+
+        lightning.Strike(5);
+
         Instantiate(appleBall);
+
         while (player.size < 1)
-            yield return new WaitForFixedUpdate();
-        StartCoroutine(dialogueManager.WritingDialogue(DialogueData.dialogueLines5));
+            yield return update;
+
+        dialogueManager.StartDialogue(DialogueData.tutorial5);
         while(!tutorialFinish)
-            yield return new WaitForFixedUpdate();
+            yield return update;
+
         transition.FadeToBlack();
         yield return new WaitForSeconds(2f);
         SceneLoader.LoadNextScene();
