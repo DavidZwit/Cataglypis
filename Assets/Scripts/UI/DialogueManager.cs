@@ -33,7 +33,11 @@ public class DialogueManager : MonoBehaviour {
             }
         }
     }
-    public IEnumerator WritingDialogue(DialogueStruct[] dialogue)
+    public void StartDialogue(DialogueStruct[] dialogue)
+    {
+        StartCoroutine(WritingDialogue(dialogue));
+    }
+    IEnumerator WritingDialogue(DialogueStruct[] dialogue)
     {
         UIObject.SetActive(true);
         playerObject.enabled = false;

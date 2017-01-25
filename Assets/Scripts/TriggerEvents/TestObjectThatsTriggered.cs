@@ -6,6 +6,9 @@ public class TestObjectThatsTriggered : MonoBehaviour, ITrigger {
     private TextMesh mesh;
     [SerializeField]
     private Door door;
+    [SerializeField]
+    private DialogueManager dialogueManager;
+    private bool finished = false;
     void Start()
     {
         mesh = GetComponent<TextMesh>();
@@ -13,6 +16,10 @@ public class TestObjectThatsTriggered : MonoBehaviour, ITrigger {
     }
     public void Triggered(GameObject target)
     {
+        if(!finished)
+        {
+            finished = true;
+        }
         mesh.text = "You got it!";
         door.Open();
     }
