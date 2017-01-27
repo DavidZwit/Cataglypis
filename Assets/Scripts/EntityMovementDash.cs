@@ -2,13 +2,16 @@
 using UnityEngine;
 using System;
 
-public class EntityMovement : MonoBehaviour
+public class EntityMovementDash : MonoBehaviour
 {
-
     private Camera camera;
     [SerializeField]
     private float movementSpeed = 1;
-
+    [SerializeField]
+    private float dashSpeed = 5;
+    [SerializeField]
+    private float dashCooldownTime = .3f;
+    private float currDashCooldownTime;
 
     private Rigidbody2D rb;
     private IsMergeable mergeScript;
@@ -16,6 +19,8 @@ public class EntityMovement : MonoBehaviour
     private Action<Vector3, float> applyTranslation;
 
     private readonly WaitForFixedUpdate _fixedUpdate = new WaitForFixedUpdate();
+
+    private Coroutine _dashCoolDown;
 
     void Awake()
     {
@@ -28,12 +33,7 @@ public class EntityMovement : MonoBehaviour
         if (rb != null)
         {
             applyTranslation = (Vector3 dest, float speed) => {
-                rb.velocity = -new Vector2(transform.position.x - dest.x, transform.position.y - dest.y) * speed;
-                if (Vector3.Distance(transform.position, dest) > .2f) {
-                    mergeScript.CanMerge = true;
-                } else {
-                    mergeScript.CanMerge = false;
-                }
+                rb.velocity = -new Vector2(transform.position.x - dest.x, transform.position.y - dest.y).normalized * speed;
             };
         }
         else
@@ -44,11 +44,45 @@ public class EntityMovement : MonoBehaviour
         }
     }
 
-    public void MoveTo(Vector3 clickPos)
+    public void Dash(Vector2 clickPos, float speed)
     {
-        applyTranslation(transform.position + clickPos, movementSpeed);
+
+        if (applyTranslation != null)
+            applyTranslation(clickPos, dashSpeed);
+        mergeScript.CanMerge = true;
+
+        if (rb != null)
+        {
+            if (_dashCoolDown != null) _dashCoolDown = null;
+            print(_dashCoolDown);
+            _dashCoolDown = StartCoroutine(DashCoolDown());
+        }
+
     }
 
+    public void MoveTo(Vector3 clickPos)
+    {
+        if (mergeScript.CanMerge == false || currDashCooldownTime <= 0)
+        {
+            //if (Vector2.Distance(transform.position, clickPos) > .2)
+            applyTranslation(clickPos, movementSpeed);
+        }
+    }
+
+    IEnumerator DashCoolDown()
+    {
+        currDashCooldownTime = dashCooldownTime;
+        while (rb.velocity.x > 1 || rb.velocity.x < 1 || rb.velocity.y < -1 || rb.velocity.y > 1)
+        {
+            currDashCooldownTime -= Time.deltaTime;
+
+            if (mergeScript.CanMerge == false) break;
+            yield return _fixedUpdate;
+        }
+
+        mergeScript.CanMerge = false;
+        _dashCoolDown = null;
+    }
 
     IEnumerator MoveEnitity(Vector3 dest)
     {
@@ -60,7 +94,8 @@ public class EntityMovement : MonoBehaviour
     }
 
     public void PlayerMerged(IsMergeable mergeScript)
-    { 
+    {
+        CancleDash();
         Bounce(mergeScript);
     }
 

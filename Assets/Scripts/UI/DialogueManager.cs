@@ -14,7 +14,7 @@ public class DialogueManager : MonoBehaviour {
     [SerializeField]
     private GameObject UIObject;
     [SerializeField]
-    private FollowObject playerObject;
+    private MouseInputPlayer playerObject;
 
     private bool isWriting = false;
     private bool inDialogue = false;
