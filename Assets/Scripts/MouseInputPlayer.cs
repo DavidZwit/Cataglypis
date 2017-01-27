@@ -6,46 +6,63 @@ public class MouseInputPlayer : MonoBehaviour
 {
     private Camera camera;
 
+    private EntityMovementDash dashPMovement;
     private EntityMovement pMovement;
     private Vector2 oldMousePos;
 
+    private Vector2 mouseDownPos;
+
     [SerializeField]
     private float dashFlickSpeed = .8f;
+
+    [SerializeField] private bool useDash;
 
     [SerializeField] private float maxFingerMoveSpeed = .3f;
 
     void Awake()
     {
         camera = Camera.main;
-        pMovement = GetComponent<EntityMovement>();
+        if (useDash)
+            dashPMovement = GetComponent<EntityMovementDash>();
+        else pMovement = GetComponent<EntityMovement>();
     }
 
     void OnEnable()
     {
-        PlayerMerge.IFailedToMerge += pMovement.PlayerMerged;
+        //PlayerMerge.IFailedToMerge += dashPMovement.PlayerMerged;
     }
 
     void OnDisable()
     {
-        PlayerMerge.IFailedToMerge -= pMovement.PlayerMerged;
+        //PlayerMerge.IFailedToMerge -= dashPMovement.PlayerMerged;
     }
 
     void FixedUpdate()
     {
         Vector2 mouseWorldPos;
         try {
-            mouseWorldPos = camera.ScreenToWorldPoint(Input.GetTouch(0).position);
+            mouseWorldPos = new Vector2(Input.GetTouch(0).position.x / Screen.width, Input.GetTouch(0).position.y / Screen.height);
         } catch{
-            mouseWorldPos = camera.ScreenToWorldPoint(Input.mousePosition);
+            mouseWorldPos = new Vector2(Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height);
+        }
+
+        if (Input.GetMouseButtonDown(0) == true)
+        {
+            mouseDownPos = mouseWorldPos;
         }
 
         if (Input.GetMouseButton(0) == true)
         {
             float mouseDelta = Vector2.Distance(mouseWorldPos, oldMousePos);
 
-            //if (mouseDelta > dashFlickSpeed && mouseDelta < dashFlickSpeed * 2) pMovement.Dash((Vector2)transform.position + (mouseWorldPos - oldMousePos), mouseDelta);
-            //else if (mouseDelta < maxFingerMoveSpeed) pMovement.MoveTo(mouseWorldPos);
-            pMovement.MoveTo(mouseWorldPos);
+            if (useDash == true)
+            {
+                if (mouseDelta > dashFlickSpeed && mouseDelta < dashFlickSpeed * 2)
+                    dashPMovement.Dash((Vector2) transform.position + (mouseWorldPos - oldMousePos), mouseDelta);
+                else if (mouseDelta < maxFingerMoveSpeed) dashPMovement.MoveTo(mouseWorldPos);
+            } else {
+                pMovement.MoveTo(mouseWorldPos - mouseDownPos);
+            }
         }
 
         oldMousePos = mouseWorldPos;
