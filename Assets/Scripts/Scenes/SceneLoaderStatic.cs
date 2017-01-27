@@ -1,17 +1,16 @@
 ﻿using UnityEngine.SceneManagement;
 
-public class SceneLoader
-{
+public static class SceneLoaderStatic {
 
-    public void LoadNewScene(string scene)
+    public static void LoadNewScene(string scene)
     {
         SceneManager.LoadScene(scene);
     }
-    public void LoadNextScene()
+    public static void LoadNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
-    public void ReloadScene()
+    public static void ReloadScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }

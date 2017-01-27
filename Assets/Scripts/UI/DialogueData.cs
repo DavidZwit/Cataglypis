@@ -19,7 +19,7 @@ public struct DialogueStruct
 public class DialogueData {
     public static string Wizcat = "Wizcat";
     public static string Ball = "Ball";
-    public static string Mysterious = "Mysterious Narrator";
+    public static string Mysterious = "?????????";
     public static string UI = "Notification";
 
     /// <summary>
@@ -38,8 +38,8 @@ public class DialogueData {
     {
         new DialogueStruct(Mysterious, "You will need this if you want to stand any chance to end this nightmare.","mysterious",true),
         new DialogueStruct(UI, "You obtained the mass scanner!","none",false),
-        new DialogueStruct(UI, "You can now see weight values.","none",false),
-        new DialogueStruct(UI, "Swipe to dash in a direction and interact with other balls.","none",false),
+        new DialogueStruct(UI, "You can now see weight values of yourself and other entities.","none",false),
+        new DialogueStruct(UI, "Make contact to interact with other balls.","none",false),
     };
 
     public static DialogueStruct[] tutorial3 = new DialogueStruct[]

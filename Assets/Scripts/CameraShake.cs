@@ -24,8 +24,11 @@ public class CameraShake : MonoBehaviour {
     //public function that starts the camera shaking.
     public void Shake()
     {
-        if(!isShacking)
+        if (!isShacking)
+        {
+            isShacking = true;
             StartCoroutine(CameraShaking());
+        }
     }
 
     //this numerator is active as long isAvtive is true. It calculates the randompositions and waits for the framerate, then it puts it back.
@@ -44,7 +47,6 @@ public class CameraShake : MonoBehaviour {
     //this numerator handles how long the shake is active.
     IEnumerator CameraShaking()
     {
-        isShacking = true;
         StartCoroutine(RandomPositions());
         yield return new WaitForSeconds(shakeTime);
         isShacking = false;

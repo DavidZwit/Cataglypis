@@ -79,8 +79,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013667687172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.79, y: -2.69, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalPosition: {x: -0.053, y: -14.27, z: 0}
+  m_LocalScale: {x: 0.3052443, y: 0.3, z: 0.3}
   m_Children:
   - {fileID: 4000012450789138}
   m_Father: {fileID: 0}
@@ -169,11 +169,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e6b633ac508564b8f1fa15fdb1fd96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 1
+  size: 0.2
   tex: {fileID: 0}
   mergeMesh: {fileID: 0}
   type: 1
-  minSize: 0.1
+  minSize: 0
   maxSize: 50
 --- !u!114 &114000011077986810
 MonoBehaviour:
@@ -194,15 +194,15 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013667687172}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 66c00360ced9c994c993423d670dccb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stoppingPower: 10
+  stoppingPower: 4
   offset: {x: 0, y: 0, z: 0}
   target: {fileID: 0}
-  Follow: 1
+  Follow: 0
 --- !u!114 &114000011996715270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -226,7 +226,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013667687172}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 325cd1ad9d4c6b94f9e80667dffab9e0, type: 3}
   m_Name: 
@@ -302,19 +302,20 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013667687172}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 50133bf7ba459da4799cd3c52158ea32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dashFlickSpeed: 0.2
+  maxFingerMoveSpeed: 0.3
 --- !u!114 &114759475784215202
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000013667687172}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9df1f14de26aaf34ba8cfeeba12e629e, type: 3}
   m_Name: 

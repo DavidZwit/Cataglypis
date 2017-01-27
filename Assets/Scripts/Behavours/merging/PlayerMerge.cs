@@ -23,8 +23,10 @@ public class PlayerMerge : IsMergeable {
 
     void MergeHappend(IsMergeable mergeScript)
     {
+        Debug.Log("split");
+
         //if (CanMerge == true) {
-            float otherSize = mergeScript.size;
+        float otherSize = mergeScript.size;
             Texture2D otherTexture = mergeScript.tex;
 
             if (size >= otherSize)

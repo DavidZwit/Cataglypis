@@ -56,4 +56,9 @@ public class FollowObject : MonoBehaviour {
     {
         get { return distance; }
     }
+    public GameObject Target
+    {
+        get { return target; }
+        set { target = value; }
+    }
 }

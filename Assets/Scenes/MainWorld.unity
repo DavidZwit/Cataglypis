@@ -770,6 +770,16 @@ Prefab:
       propertyPath: target
       value: 
       objectReference: {fileID: 545658438}
+    - target: {fileID: 114000012443586370, guid: 7d4271cc91bbb8f4b9fc8647f0358edd,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114000010680925406, guid: 7d4271cc91bbb8f4b9fc8647f0358edd,
+        type: 2}
+      propertyPath: size
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d4271cc91bbb8f4b9fc8647f0358edd, type: 2}
   m_IsPrefabParent: 0
@@ -2136,6 +2146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   door: {fileID: 728355302}
+  dialogueManager: {fileID: 0}
 --- !u!1 &1583615381
 GameObject:
   m_ObjectHideFlags: 0

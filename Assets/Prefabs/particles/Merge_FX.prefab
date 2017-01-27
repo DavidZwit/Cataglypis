@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4000010399178664}
   - component: {fileID: 198000013636985616}
   - component: {fileID: 199000012900711284}
-  - component: {fileID: 114648800553478968}
+  - component: {fileID: 114720751815531706}
   m_Layer: 0
   m_Name: Merge_FX
   m_TagString: Untagged
@@ -36,13 +36,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1000012211834478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.764, y: 0.82, z: 3.22}
+  m_LocalPosition: {x: 1.3942018, y: 0.26, z: 6.3502283}
   m_LocalScale: {x: 0.09623553, y: 0.09623549, z: 0.09623549}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114648800553478968
+--- !u!114 &114720751815531706
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -109,7 +109,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: 393740543
+  randomSeed: 1718133100
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -282,7 +282,7 @@ ParticleSystem:
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0, g: 0, b: 0, a: 1}
+      maxColor: {r: 0.011764706, g: 0.03137255, b: 0.09411765, a: 1}
       minMaxState: 0
     startSize:
       scalar: 10

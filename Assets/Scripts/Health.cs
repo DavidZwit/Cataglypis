@@ -33,7 +33,7 @@ public class Health : MonoBehaviour {
         if (lives <= 0)
         {
             Instantiate(deathParticle, transform.position, Quaternion.identity);
-            SceneLoader.ReloadScene();
+            SceneLoaderStatic.ReloadScene();
             Destroy(gameObject);
         }
     }
