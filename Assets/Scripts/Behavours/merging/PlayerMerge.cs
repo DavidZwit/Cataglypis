@@ -24,7 +24,7 @@ public class PlayerMerge : IsMergeable {
     void MergeHappend(IsMergeable mergeScript)
     {
 
-        if (CanMerge == true) {
+        //if (CanMerge == true) {
         float otherSize = mergeScript.size;
             Texture2D otherTexture = mergeScript.tex;
 
@@ -63,6 +63,6 @@ public class PlayerMerge : IsMergeable {
                     }
                 }
             }
-        }
+        //}
     }
 }

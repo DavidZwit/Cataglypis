@@ -6,6 +6,7 @@ public class CowRandomValueSpawner : MonoBehaviour
 
     private List<float> numbers = new List<float> { };
     private float startValue = 1;
+    [SerializeField]
     private float endValue = 20;
     [SerializeField]
     private GameObject cowObject;

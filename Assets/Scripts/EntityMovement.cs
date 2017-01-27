@@ -29,11 +29,11 @@ public class EntityMovement : MonoBehaviour
         {
             applyTranslation = (Vector3 dest, float speed) => {
                 rb.velocity = -new Vector2(transform.position.x - dest.x, transform.position.y - dest.y) * speed;
-                if (Vector3.Distance(transform.position, dest) > .2f) {
+                /*if (Vector3.Distance(transform.position, dest) > 1f) {
                     mergeScript.CanMerge = true;
                 } else {
                     mergeScript.CanMerge = false;
-                }
+                }*/
             };
         }
         else
@@ -46,7 +46,7 @@ public class EntityMovement : MonoBehaviour
 
     public void MoveTo(Vector3 clickPos)
     {
-        applyTranslation(transform.position + clickPos, movementSpeed);
+        applyTranslation(clickPos, movementSpeed);
     }
 
 

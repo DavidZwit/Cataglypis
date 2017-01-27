@@ -41,9 +41,9 @@ public class MouseInputPlayer : MonoBehaviour
     {
         Vector2 mouseWorldPos;
         try {
-            mouseWorldPos = new Vector2(Input.GetTouch(0).position.x / Screen.width, Input.GetTouch(0).position.y / Screen.height);
-        } catch{
-            mouseWorldPos = new Vector2(Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height);
+            mouseWorldPos =(Vector2) camera.ScreenToWorldPoint(Input.GetTouch(0).position);
+        } catch {
+            mouseWorldPos = (Vector2) camera.ScreenToWorldPoint(Input.mousePosition);
         }
 
         if (Input.GetMouseButtonDown(0) == true)
@@ -61,7 +61,7 @@ public class MouseInputPlayer : MonoBehaviour
                     dashPMovement.Dash((Vector2) transform.position + (mouseWorldPos - oldMousePos), mouseDelta);
                 else if (mouseDelta < maxFingerMoveSpeed) dashPMovement.MoveTo(mouseWorldPos);
             } else {
-                pMovement.MoveTo(mouseWorldPos - mouseDownPos);
+                pMovement.MoveTo(mouseWorldPos);
             }
         }
 
