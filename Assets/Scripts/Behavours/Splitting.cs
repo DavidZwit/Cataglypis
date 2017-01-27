@@ -15,7 +15,6 @@ public class Splitting : MonoBehaviour {
 
     void SplitInTwo(IsMergeable playerObject)
     {
-        Debug.Log("split");
         playerObject.size /= 2;
 
         GameObject playerWaste = Instantiate(playerObject.gameObject) as GameObject;

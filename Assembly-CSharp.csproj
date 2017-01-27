@@ -48,7 +48,6 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\Addons\MergePlayerModels.cs" />
      <Compile Include="Assets\Scripts\Addons\MergePlayerTextures.cs" />
-     <Compile Include="Assets\Scripts\Behavours\BounceBack.cs" />
      <Compile Include="Assets\Scripts\Behavours\ChangeToSize.cs" />
      <Compile Include="Assets\Scripts\Behavours\Dash.cs" />
      <Compile Include="Assets\Scripts\Behavours\DisplaySize.cs" />
@@ -77,6 +76,7 @@
      <Compile Include="Assets\Scripts\PlayerParticles.cs" />
      <Compile Include="Assets\Scripts\RandomizeWeights.cs" />
      <Compile Include="Assets\Scripts\Scenes\SceneLoader.cs" />
+     <Compile Include="Assets\Scripts\Scenes\SceneLoaderStatic.cs" />
      <Compile Include="Assets\Scripts\SettingTimeScale.cs" />
      <Compile Include="Assets\Scripts\SortingLayerExposer.cs" />
      <Compile Include="Assets\Scripts\StateMachine\NavigatorInterface.cs" />

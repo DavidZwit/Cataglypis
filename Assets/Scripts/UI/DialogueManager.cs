@@ -40,7 +40,7 @@ public class DialogueManager : MonoBehaviour {
     IEnumerator WritingDialogue(DialogueStruct[] dialogue)
     {
         UIObject.SetActive(true);
-        playerObject.Follow = false;
+        playerObject.enabled = false;
         inDialogue = true;
         while(inDialogue)
         {
@@ -68,7 +68,7 @@ public class DialogueManager : MonoBehaviour {
             inDialogue = false;
         }
         UIObject.SetActive(false);
-        playerObject.Follow = true;
+        playerObject.enabled = true;
     }
     IEnumerator WritingLine(string line)
     {

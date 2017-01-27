@@ -64,10 +64,6 @@ public class EntityMovement : MonoBehaviour
         Bounce(mergeScript);
     }
 
-    void CancleDash()
-    {
-        mergeScript.CanMerge = false;
-    }
 
     void Bounce(IsMergeable mergeScript)
     {

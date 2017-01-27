@@ -1,6 +1,7 @@
-﻿using UnityEngine.SceneManagement;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class SceneLoader
+public class SceneLoader: MonoBehaviour
 {
 
     public void LoadNewScene(string scene)
