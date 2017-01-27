@@ -51,9 +51,8 @@ public class DialogueData {
     public static DialogueStruct[] tutorial4 = new DialogueStruct[]
     {
         new DialogueStruct(Wizcat, "Bwhahaha!","laughingcat", false),
-        new DialogueStruct(Wizcat, "You think you can stand a chance against the majestic Tovertree?!","Wizcat", false),
+        new DialogueStruct(Wizcat, "You think you can stand a chance against the majestic Magic tree?!","Wizcat", false),
         new DialogueStruct(Wizcat, "Well I hope you like limbos…","Wizcat", false),
-        new DialogueStruct(Wizcat, "You think you can stand a chance against the majestic Tovertree?!","laughingcat", false),
     };
 
     public static DialogueStruct[] tutorial5 = new DialogueStruct[]
