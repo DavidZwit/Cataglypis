@@ -26,10 +26,6 @@ public class DisplaySize : MonoBehaviour
 
     void Start()
     {
-        if (randomNaming)
-        {
-            unitTerm = ConvertUnit.GetRandomMetricSize();
-        }
 
         CreateText();
 
@@ -63,7 +59,12 @@ public class DisplaySize : MonoBehaviour
     void UpdateSize(float size)
     {
         if (randomNaming == true)
-            unitTerm = ConvertUnit.GetRandomMetricSize();
+        {
+            if (Dificulty.level >= 2)
+                unitTerm = ConvertUnit.GetRandomMetricSize();
+            else
+                unitTerm = ConvertUnit.GetPseudoRandomMetricSize();
+        }
 
         score.text = ConvertUnit.GetConverted(size, unitTerm);
         score.offsetZ = .1f;

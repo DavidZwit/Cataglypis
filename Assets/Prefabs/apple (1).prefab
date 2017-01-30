@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc13c0d49dbd3846a6912d6f88c5185, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  size: 0.2
+  size: 0.4
   tex: {fileID: 0}
   mergeMesh: {fileID: 0}
   type: 0

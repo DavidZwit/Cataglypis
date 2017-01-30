@@ -12,6 +12,10 @@ public class PressurPlate : MonoBehaviour {
     private int maxWeight;
 
     private PlayerMerge mergeScript;
+    [SerializeField]
+    private TextMesh weightString;
+
+    
     void OnTriggerEnter2D(Collider2D coll)
     {
         mergeScript = coll.GetComponent<PlayerMerge>();
@@ -27,5 +31,11 @@ public class PressurPlate : MonoBehaviour {
     {
         if (mergeScript != null)
             ExecuteEvents.Execute<ITrigger>(target, null, (x, y) => x.UnTriggered(target));
+    }
+    public int MinWeight{
+        set {
+            minWeight = value;
+            weightString.text = value+"g";
+        }
     }
 }
