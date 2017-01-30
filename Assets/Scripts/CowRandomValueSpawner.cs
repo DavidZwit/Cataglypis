@@ -12,10 +12,20 @@ public class CowRandomValueSpawner : MonoBehaviour
     private GameObject cowObject;
     [SerializeField]
     private List<Transform> spawnPoints;
+    [SerializeField]
+    private PressurPlate plate;
+    [SerializeField]
+    private TextMesh levelText;
     void Start()
     {
-        float totalValue = startValue;
+        levelText.text = "lvl " + Dificulty.level;
 
+        plate.MinWeight = (int)endValue;
+        SpawnCows();
+    }
+    void SpawnCows()
+    {
+        float totalValue = startValue;
         while (totalValue < endValue)
         {
             float tempNumber = Mathf.Round(totalValue * Random.Range(7, 10)) / 10;
