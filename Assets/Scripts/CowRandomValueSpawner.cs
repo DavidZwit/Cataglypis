@@ -18,7 +18,7 @@ public class CowRandomValueSpawner : MonoBehaviour
 
         while (totalValue < endValue)
         {
-            float tempNumber = Mathf.Round(totalValue * Random.Range(7, 10)) / 10;
+            float tempNumber = Mathf.Round(totalValue * Random.Range(10, 10)) / 10;
             numbers.Add(tempNumber);
             totalValue += tempNumber;
         }

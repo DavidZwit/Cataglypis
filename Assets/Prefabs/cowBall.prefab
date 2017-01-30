@@ -179,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   size: 3
   tex: {fileID: 0}
-  mergeMesh: {fileID: 1758964081745430, guid: 7b8405c72d2fc074da7d3a6afe91052f, type: 2}
+  mergeMesh: {fileID: 100000, guid: 8cbab15ef30ad6141bf2a37574a4b517, type: 3}
   type: 0
 --- !u!114 &114136897813932968
 MonoBehaviour:

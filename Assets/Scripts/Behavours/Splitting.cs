@@ -13,7 +13,7 @@ public class Splitting : MonoBehaviour {
         PlayerMerge.IFailedToMerge -= SplitInTwo;
     }
 
-    void SplitInTwo(IsMergeable playerObject)
+    void SplitInTwo(PlayerMerge playerObject, IsMergeable otherMerge)
     {
         playerObject.size /= 2;
 

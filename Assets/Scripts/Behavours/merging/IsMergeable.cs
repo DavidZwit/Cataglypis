@@ -51,7 +51,7 @@ public class IsMergeable : MonoBehaviour {
     
     void Merge()
     {
-        if(OnMerge!=null)
+        if (OnMerge != null)
             OnMerge(this);
     }
 
