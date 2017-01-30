@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\CameraShake.cs" />
      <Compile Include="Assets\Scripts\CowRandomValueSpawner.cs" />
      <Compile Include="Assets\Scripts\Data\ConvertWeigth.cs" />
+     <Compile Include="Assets\Scripts\Data\Dificulty.cs" />
      <Compile Include="Assets\Scripts\DestroyAfterTime.cs" />
      <Compile Include="Assets\Scripts\EntityMovement.cs" />
      <Compile Include="Assets\Scripts\EntityMovementDash.cs" />
@@ -93,6 +94,7 @@
      <Compile Include="Assets\Scripts\TriggerEvents\Door.cs" />
      <Compile Include="Assets\Scripts\TriggerEvents\ITrigger.cs" />
      <Compile Include="Assets\Scripts\TriggerEvents\PressurPlate.cs" />
+     <Compile Include="Assets\Scripts\TriggerEvents\Roof.cs" />
      <Compile Include="Assets\Scripts\TriggerEvents\TestObjectThatsTriggered.cs" />
      <Compile Include="Assets\Scripts\UI\DialogueData.cs" />
      <Compile Include="Assets\Scripts\UI\DialogueManager.cs" />
