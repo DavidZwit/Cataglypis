@@ -4,7 +4,7 @@ using System;
 public class PlayerMerge : IsMergeable {
 
     public static Action<IsMergeable> IMerged;
-    public static Action<IsMergeable> IFailedToMerge;
+    public static Action<PlayerMerge, IsMergeable> IFailedToMerge;
     public static Action<int>ChangeHealth;
     [SerializeField]
     private float minSize = .1f;
@@ -46,11 +46,11 @@ public class PlayerMerge : IsMergeable {
                 if (IFailedToMerge != null)
                 {
                     ChangeHealth(-1);
-                    if (IFailedToMerge != null)
-                        IFailedToMerge(this);
-                }
+                   if (IFailedToMerge != null) IFailedToMerge(this, mergeScript);
 
-            } //Break into two()
+            }
+
+        } //Break into two()
 
             if (UpdatedSize != null)
             {

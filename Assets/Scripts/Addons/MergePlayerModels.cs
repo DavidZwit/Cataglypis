@@ -22,7 +22,10 @@ public class MergePlayerModels : MonoBehaviour {
 
             mergeStuff.transform.rotation = Random.rotation;
 
+
             mergeStuff.transform.parent = gameObject.transform;
+            mergeStuff.transform.position = Vector3.zero;
+
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class MouseInputPlayer : MonoBehaviour
 {
@@ -29,19 +30,19 @@ public class MouseInputPlayer : MonoBehaviour
 
     void OnEnable()
     {
-        //PlayerMerge.IFailedToMerge += dashPMovement.PlayerMerged;
+        PlayerMerge.IFailedToMerge += pMovement.PlayerMerged;
     }
 
     void OnDisable()
     {
-        //PlayerMerge.IFailedToMerge -= dashPMovement.PlayerMerged;
+        PlayerMerge.IFailedToMerge -= pMovement.PlayerMerged;
     }
 
     void FixedUpdate()
     {
         Vector2 mouseWorldPos;
         try {
-            mouseWorldPos =(Vector2) camera.ScreenToWorldPoint(Input.GetTouch(0).position);
+            mouseWorldPos = (Vector2) camera.ScreenToWorldPoint(Input.GetTouch(0).position);
         } catch {
             mouseWorldPos = (Vector2) camera.ScreenToWorldPoint(Input.mousePosition);
         }
@@ -55,17 +56,20 @@ public class MouseInputPlayer : MonoBehaviour
         {
             float mouseDelta = Vector2.Distance(mouseWorldPos, oldMousePos);
 
-            if (useDash == true)
-            {
-                if (mouseDelta > dashFlickSpeed && mouseDelta < dashFlickSpeed * 2)
-                    dashPMovement.Dash((Vector2) transform.position + (mouseWorldPos - oldMousePos), mouseDelta);
-                else if (mouseDelta < maxFingerMoveSpeed) dashPMovement.MoveTo(mouseWorldPos);
-            } else {
-                pMovement.MoveTo(mouseWorldPos);
-            }
+                if (useDash == true)
+                {
+                    if (mouseDelta > dashFlickSpeed && mouseDelta < dashFlickSpeed * 2)
+                        dashPMovement.Dash((Vector2)transform.position + (mouseWorldPos - oldMousePos), mouseDelta);
+                    else if (mouseDelta < maxFingerMoveSpeed) dashPMovement.MoveTo(mouseWorldPos);
+                }
+                else
+                {
+                    pMovement.MoveTo(mouseWorldPos);
+                }
         }
 
         oldMousePos = mouseWorldPos;
 
     }
-}
+
+};

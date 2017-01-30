@@ -28,7 +28,7 @@ public class EntityMovement : MonoBehaviour
         if (rb != null)
         {
             applyTranslation = (Vector3 dest, float speed) => {
-                rb.velocity = -new Vector2(transform.position.x - dest.x, transform.position.y - dest.y) * speed;
+                rb.velocity = -new Vector2(transform.position.x - dest.x, transform.position.y - dest.y).normalized * speed;
                 /*if (Vector3.Distance(transform.position, dest) > 1f) {
                     mergeScript.CanMerge = true;
                 } else {
@@ -49,6 +49,11 @@ public class EntityMovement : MonoBehaviour
         applyTranslation(clickPos, movementSpeed);
     }
 
+    public void resetVelocity()
+    {
+        rb.velocity = Vector2.zero;
+    }
+
 
     IEnumerator MoveEnitity(Vector3 dest)
     {
@@ -59,7 +64,7 @@ public class EntityMovement : MonoBehaviour
         }
     }
 
-    public void PlayerMerged(IsMergeable mergeScript)
+    public void PlayerMerged(PlayerMerge pMerge, IsMergeable mergeScript)
     { 
         Bounce(mergeScript);
     }
@@ -67,9 +72,9 @@ public class EntityMovement : MonoBehaviour
 
     void Bounce(IsMergeable mergeScript)
     {
-        Vector3 mergepos = mergeScript.gameObject.transform.position;
-        Vector3 distance = new Vector3(mergepos.x - transform.position.x, mergepos.y - transform.position.y, 0).normalized;
-        transform.position = mergepos + distance;
+        Vector2 mergepos = (Vector2)mergeScript.gameObject.transform.position;
+        Vector2 distance = (mergepos - (Vector2)transform.position);
+        applyTranslation((Vector2) (mergepos + distance), -2);
     }
 
 }

@@ -29,7 +29,7 @@ public class PlayerParticles : MonoBehaviour {
         Instantiate(collissionParticle, transform.position, Quaternion.identity);
     }
 
-    void FailingToMerge(IsMergeable temp)
+    void FailingToMerge(PlayerMerge temp, IsMergeable otherMerge)
     {
         Instantiate(mergeFailParticle, transform.position, Quaternion.identity);
     }
