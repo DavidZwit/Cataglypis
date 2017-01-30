@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class MainWorldEvents : MonoBehaviour {
     [SerializeField]
-    private DialogueManager dialogueManager;
-    [SerializeField]
-    private PlayerMerge player;
+    private TransitionBetweenScenes transition;
 
-    void Start () {
-        StartCoroutine(Begin());
+    void OnTriggerEnter2D () {
+        StartCoroutine(Finish());
 	}
-	IEnumerator Begin()
+	IEnumerator Finish()
     {
-        yield return new WaitForSeconds(1f);
-        dialogueManager.StartDialogue(DialogueData.mainWorld1);
+        transition.FadeToBlack();
+        yield return new WaitForSeconds(2f);
+        Dificulty.level++;
+        SceneLoaderStatic.ReloadScene();
     }
 }

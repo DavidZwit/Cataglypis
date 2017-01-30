@@ -25,6 +25,7 @@ public class TutorialEvents : MonoBehaviour, ITrigger
     }
     IEnumerator Begin()
     {
+        Dificulty.level = 1;
         WaitForFixedUpdate fixedUpdate = new WaitForFixedUpdate();
         yield return new WaitForSeconds(2f);
         lightning.Strike(2);
@@ -65,7 +66,7 @@ public class TutorialEvents : MonoBehaviour, ITrigger
         WaitForFixedUpdate update = new WaitForFixedUpdate();
         dialogueManager.StartDialogue(DialogueData.tutorial3);
 
-        while (player.size < 0.3)
+        while (player.size < 0.6)
             yield return update;
 
         yield return new WaitForSeconds(1);
@@ -82,11 +83,11 @@ public class TutorialEvents : MonoBehaviour, ITrigger
 
         Instantiate(appleBall);
 
-        while (player.size < 1)
+        while (player.size < 2)
             yield return update;
 
         cameraShake.Shake();
-        lightning.Strike(20);
+        lightning.Strike(10);
         dialogueManager.StartDialogue(DialogueData.tutorial5);
         while(!tutorialFinish)
             yield return update;
