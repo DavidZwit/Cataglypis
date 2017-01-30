@@ -21,7 +21,6 @@ public class TestObjectThatsTriggered : MonoBehaviour, ITrigger {
     }
     public void UnTriggered(GameObject target)
     {
-        mesh.text = "";
     }
     public void FailingTrigger(GameObject target)
     {
