@@ -9,6 +9,8 @@ public class EntityMovement : MonoBehaviour
     [SerializeField]
     private float movementSpeed = 1;
 
+    [SerializeField]
+    private bool doMove = true;
 
     private Rigidbody2D rb;
     private IsMergeable mergeScript;
@@ -28,12 +30,8 @@ public class EntityMovement : MonoBehaviour
         if (rb != null)
         {
             applyTranslation = (Vector3 dest, float speed) => {
-                rb.velocity = -new Vector2(transform.position.x - dest.x, transform.position.y - dest.y).normalized * speed;
-                /*if (Vector3.Distance(transform.position, dest) > 1f) {
-                    mergeScript.CanMerge = true;
-                } else {
-                    mergeScript.CanMerge = false;
-                }*/
+                if (doMove == true) 
+                    rb.velocity = -new Vector2(transform.position.x - dest.x, transform.position.y - dest.y).normalized * speed;
             };
         }
         else
@@ -64,6 +62,15 @@ public class EntityMovement : MonoBehaviour
         }
     }
 
+    IEnumerator BounceCooldown()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(.5f);
+            doMove = true;
+        }
+    }
+
     public void PlayerMerged(PlayerMerge pMerge, IsMergeable mergeScript)
     { 
         Bounce(mergeScript);
@@ -75,6 +82,8 @@ public class EntityMovement : MonoBehaviour
         Vector2 mergepos = (Vector2)mergeScript.gameObject.transform.position;
         Vector2 distance = (mergepos - (Vector2)transform.position);
         applyTranslation((Vector2) (mergepos + distance), -2);
+        doMove = false;
+        StartCoroutine(BounceCooldown());
     }
 
 }

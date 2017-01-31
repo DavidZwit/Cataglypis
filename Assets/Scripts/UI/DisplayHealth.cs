@@ -9,10 +9,14 @@ public class DisplayHealth : MonoBehaviour {
     {
         for (int i = 0; i < heartImages.Length; i++)
         {
-            if (i <= lives-1)
-                heartImages[i].gameObject.SetActive(true);
-            else
-                heartImages[i].gameObject.SetActive(false);
+            Animation anim = heartImages[i].gameObject.GetComponent<Animation>();
+
+            if (i <= lives - 1)
+                anim.Play("HeartGrow");
+            else if (i == lives)
+                anim.Play();
+
+
         }
     }
 }

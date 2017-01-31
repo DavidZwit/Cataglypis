@@ -46,7 +46,7 @@ public class PlayerMerge : IsMergeable {
                 if (IFailedToMerge != null)
                 {
                     ChangeHealth(-1);
-                   if (IFailedToMerge != null) IFailedToMerge(this, mergeScript);
+                    if (IFailedToMerge != null) IFailedToMerge(this, mergeScript);
 
             }
 
