@@ -36,5 +36,7 @@ public class Health : MonoBehaviour {
             SceneLoaderStatic.ReloadScene();
             Destroy(gameObject);
         }
+        if (lives > maxLives)
+            lives = maxLives;
     }
 }

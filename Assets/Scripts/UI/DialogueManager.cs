@@ -15,7 +15,8 @@ public class DialogueManager : MonoBehaviour {
     private GameObject UIObject;
     [SerializeField]
     private MouseInputPlayer playerObject;
-
+    [SerializeField]
+    private AudioSource writingSound;
     private bool isWriting = false;
     private bool inDialogue = false;
     private bool goToNextLine = false;
@@ -74,7 +75,7 @@ public class DialogueManager : MonoBehaviour {
     {
         isWriting = true;
         dialogueText.text = "";
-        
+        writingSound.Play();
         for (int i = 0; i < line.Length; i++)
         {
             if(isWriting)

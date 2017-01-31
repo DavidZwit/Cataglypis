@@ -11,7 +11,8 @@ public class Lightning : MonoBehaviour {
     private GameObject lightningAnimation;
     [SerializeField]
     private Transform spwanPosition;
-
+    [SerializeField]
+    private AudioSource thunderSound;
     private int maxLightning;
     private int index;
 	public void Strike(int amountOfLightning)
@@ -19,6 +20,7 @@ public class Lightning : MonoBehaviour {
         index = 1;
         maxLightning = amountOfLightning;
         StartCoroutine(Striking());
+        thunderSound.Play();
     }
     IEnumerator Striking()
     {

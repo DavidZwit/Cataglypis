@@ -14,7 +14,7 @@ public class TutorialEvents : MonoBehaviour, ITrigger
     [SerializeField]
     private GameObject appleBall;
     [SerializeField]
-    private GameObject woolBall;
+    private GameObject[] woolBalls;
     private bool firstFail = false;
     private bool tutorialFinish = false;
     [SerializeField]
@@ -39,8 +39,9 @@ public class TutorialEvents : MonoBehaviour, ITrigger
             yield return update;
 
         player.GetComponent<DisplaySize>().enabled = true;
-        if (woolBall != null)
-            woolBall.GetComponent<DisplaySize>().enabled = true;
+        foreach(GameObject wool in woolBalls)
+            if (wool != null)
+                wool.GetComponent<DisplaySize>().enabled = true;
 
         while (player.size < 20)
             yield return update;
