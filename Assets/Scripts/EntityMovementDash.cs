@@ -93,7 +93,7 @@ public class EntityMovementDash : MonoBehaviour
         }
     }
 
-    public void PlayerMerged(IsMergeable mergeScript)
+    public void PlayerMerged(PlayerMerge pMovement, IsMergeable mergeScript)
     {
         CancleDash();
         Bounce(mergeScript);

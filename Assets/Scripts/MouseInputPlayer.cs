@@ -7,7 +7,6 @@ public class MouseInputPlayer : MonoBehaviour
 {
     private Camera camera;
 
-    private EntityMovementDash dashPMovement;
     private EntityMovement pMovement;
     private Vector2 oldMousePos;
 
@@ -16,16 +15,13 @@ public class MouseInputPlayer : MonoBehaviour
     [SerializeField]
     private float dashFlickSpeed = .8f;
 
-    [SerializeField] private bool useDash;
 
     [SerializeField] private float maxFingerMoveSpeed = .3f;
 
     void Awake()
     {
         camera = Camera.main;
-        if (useDash)
-            dashPMovement = GetComponent<EntityMovementDash>();
-        else pMovement = GetComponent<EntityMovement>();
+        pMovement = GetComponent<EntityMovement>();
     }
 
     void OnEnable()
@@ -56,16 +52,7 @@ public class MouseInputPlayer : MonoBehaviour
         {
             float mouseDelta = Vector2.Distance(mouseWorldPos, oldMousePos);
 
-                if (useDash == true)
-                {
-                    if (mouseDelta > dashFlickSpeed && mouseDelta < dashFlickSpeed * 2)
-                        dashPMovement.Dash((Vector2)transform.position + (mouseWorldPos - oldMousePos), mouseDelta);
-                    else if (mouseDelta < maxFingerMoveSpeed) dashPMovement.MoveTo(mouseWorldPos);
-                }
-                else
-                {
-                    pMovement.MoveTo(mouseWorldPos);
-                }
+               pMovement.MoveTo(mouseWorldPos);
         }
 
         oldMousePos = mouseWorldPos;

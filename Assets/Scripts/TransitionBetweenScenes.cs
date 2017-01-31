@@ -18,7 +18,6 @@ public class TransitionBetweenScenes : MonoBehaviour {
     IEnumerator FadingToBlack()
     {
         Color a = fadeImage.color;
-        Debug.Log(a.a);
         while (a.a < 1)
         {
             a.a += fadeSpeed;
