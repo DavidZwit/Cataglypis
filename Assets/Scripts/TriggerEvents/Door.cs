@@ -12,7 +12,9 @@ public class Door : MonoBehaviour {
     }
     IEnumerator Opening( Transform destination)
     {
-        while(transform.rotation != destination.rotation)
+        Debug.Log("defg");
+
+        while (transform.rotation != destination.rotation)
         {
             transform.rotation = Quaternion.Lerp(transform.rotation,destination.rotation, Time.deltaTime * 1f);
             yield return new WaitForFixedUpdate();

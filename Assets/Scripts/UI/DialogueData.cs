@@ -37,6 +37,7 @@ public class DialogueData {
     public static DialogueStruct[] tutorial2 = new DialogueStruct[]
     {
         new DialogueStruct(Mysterious, "You will need this if you want to stand any chance to end this nightmare.","mysterious",true),
+        new DialogueStruct(Mysterious, "Be sure to take the lighter balls first!","mysterious",true),
         new DialogueStruct(UI, "You obtained the mass scanner!","none",false),
         new DialogueStruct(UI, "You can now see weight values of yourself and other entities.","none",false),
         new DialogueStruct(UI, "Make contact to interact with other balls.","none",false),
@@ -45,17 +46,10 @@ public class DialogueData {
     public static DialogueStruct[] tutorial3 = new DialogueStruct[]
     {
         new DialogueStruct(Mysterious, "I had to let you learn by yourself, didn’t I?","mysterious",true),
-        new DialogueStruct(Mysterious, "Now don’t make a waste of that scanner I gave you.","mysterious",true),
+        new DialogueStruct(Mysterious, "Now go for the lighter balls first!","mysterious",true),
     };
 
     public static DialogueStruct[] tutorial4 = new DialogueStruct[]
-    {
-        new DialogueStruct(Wizcat, "Bwhahaha!","laughingcat", false),
-        new DialogueStruct(Wizcat, "You think you can stand a chance against the majestic Magic tree?!","Wizcat", false),
-        new DialogueStruct(Wizcat, "Well I hope you like limbos…","Wizcat", false),
-    };
-
-    public static DialogueStruct[] tutorial5 = new DialogueStruct[]
     {
         new DialogueStruct(Wizcat, "How is it possible?!","Wizcat", false),
         new DialogueStruct(Wizcat, "Your luck is not going to last forever...","Wizcat", false),

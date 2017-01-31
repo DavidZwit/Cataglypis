@@ -26,21 +26,40 @@ public class TutorialEvents : MonoBehaviour, ITrigger
     IEnumerator Begin()
     {
         Dificulty.level = 1;
-        WaitForFixedUpdate fixedUpdate = new WaitForFixedUpdate();
+        WaitForFixedUpdate update = new WaitForFixedUpdate();
         yield return new WaitForSeconds(2f);
         lightning.Strike(2);
         cameraShake.Shake();
         dialogueManager.StartDialogue(DialogueData.tutorial1);
         Vector3 playerStartposiiton = player.transform.position;
         while (player.transform.position.y < playerStartposiiton.y + 4f)
-            yield return fixedUpdate;
+            yield return update;
         dialogueManager.StartDialogue(DialogueData.tutorial2);
         while(dialogueManager.InDialogue)
-            yield return fixedUpdate;
+            yield return update;
 
         player.GetComponent<DisplaySize>().enabled = true;
         if (woolBall != null)
             woolBall.GetComponent<DisplaySize>().enabled = true;
+
+        while (player.size < 20)
+            yield return update;
+
+        cameraShake.Shake();
+        lightning.Strike(10);
+        dialogueManager.StartDialogue(DialogueData.tutorial4);
+        while (dialogueManager.InDialogue)
+            yield return update;
+        lightning.Strike(5);
+
+        while (!tutorialFinish)
+            yield return update;
+
+        transition.FadeToBlack();
+        yield return new WaitForSeconds(2f);
+        SceneLoaderStatic.LoadNextScene();
+
+
     }
     public void Triggered(GameObject target)
     {
@@ -54,47 +73,8 @@ public class TutorialEvents : MonoBehaviour, ITrigger
         if (!firstFail)
         {
             firstFail = true;
-            StartCoroutine(AfterFailingTreeMerge());
+            dialogueManager.StartDialogue(DialogueData.tutorial3);
         }
-        else
-        {
-
-        }
-    }
-    IEnumerator AfterFailingTreeMerge()
-    {
-        WaitForFixedUpdate update = new WaitForFixedUpdate();
-        dialogueManager.StartDialogue(DialogueData.tutorial3);
-
-        while (player.size < 0.6)
-            yield return update;
-
-        yield return new WaitForSeconds(1);
-
-        cameraShake.Shake();
-        lightning.Strike(2);
-        dialogueManager.StartDialogue(DialogueData.tutorial4);
-
-        while (dialogueManager.InDialogue)
-            yield return update;
-
-        lightning.Strike(5);
-        cameraShake.Shake();
-
-        Instantiate(appleBall);
-
-        while (player.size < 2)
-            yield return update;
-
-        cameraShake.Shake();
-        lightning.Strike(10);
-        dialogueManager.StartDialogue(DialogueData.tutorial5);
-        while(!tutorialFinish)
-            yield return update;
-
-        transition.FadeToBlack();
-        yield return new WaitForSeconds(2f);
-        SceneLoaderStatic.LoadNextScene();
     }
     void OnTriggerEnter2D(Collider2D coll)
     {

@@ -19,7 +19,10 @@ public class CowRandomValueSpawner : MonoBehaviour
     void Start()
     {
         levelText.text = "lvl " + Dificulty.level;
-
+        if (Dificulty.level > 3)
+            endValue = 7 + Random.Range(Dificulty.level, Dificulty.level+ 5);
+        if (endValue > 30)
+            endValue = 30;
         plate.MinWeight = (int)endValue;
         SpawnCows();
     }
@@ -28,7 +31,7 @@ public class CowRandomValueSpawner : MonoBehaviour
         float totalValue = startValue;
         while (totalValue < endValue)
         {
-            float tempNumber = Mathf.Round(totalValue * Random.Range(10, 10)) / 10;
+            float tempNumber = Mathf.Round(totalValue * Random.Range(5, 10)) / 10;
             numbers.Add(tempNumber);
             totalValue += tempNumber;
         }

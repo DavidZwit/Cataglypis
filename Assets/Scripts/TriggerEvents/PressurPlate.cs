@@ -22,7 +22,10 @@ public class PressurPlate : MonoBehaviour {
         if (mergeScript != null)
         {
             if (mergeScript.size >= minWeight && mergeScript.size <= maxWeight)
+            {
+                Debug.Log("defg");
                 ExecuteEvents.Execute<ITrigger>(target, null, (x, y) => x.Triggered(target));
+            }
             else
                 ExecuteEvents.Execute<ITrigger>(target, null, (x, y) => x.FailingTrigger(target));
         }
