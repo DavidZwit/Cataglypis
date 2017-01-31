@@ -21,19 +21,8 @@ public class CameraShake : MonoBehaviour {
     private float shakeRate = 0.01f;
 
 
-    void OnEnable()
-    {
-        PlayerMerge.IFailedToMerge += Shake;
-
-    }
-
-    void OnDisable()
-    {
-        PlayerMerge.IFailedToMerge += Shake;
-    }
-
     //public function that starts the camera shaking.
-    public void Shake(PlayerMerge pMerge = null, IsMergeable mergeScirpt = null)
+    public void Shake()
     {
         if (!isShacking)
         {

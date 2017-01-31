@@ -1,21 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Splitting : MonoBehaviour
-{
-
-    [SerializeField] private int startDifficulty;
+public class Splitting : MonoBehaviour {
 
     void OnEnable()
     {
-        if (Dificulty.level == startDifficulty)
-            PlayerMerge.IFailedToMerge += SplitInTwo;
+        PlayerMerge.IFailedToMerge += SplitInTwo;
     }
 
     void OnDisable()
     {
-        if (Dificulty.level == startDifficulty)
-            PlayerMerge.IFailedToMerge -= SplitInTwo;
+        PlayerMerge.IFailedToMerge -= SplitInTwo;
     }
 
     void SplitInTwo(PlayerMerge playerObject, IsMergeable otherMerge)
