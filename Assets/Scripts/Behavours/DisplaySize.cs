@@ -60,9 +60,9 @@ public class DisplaySize : MonoBehaviour
     {
         if (randomNaming == true)
         {
-            if (Dificulty.level >= 3)
+            if (Dificulty.level >= 2)
                 unitTerm = ConvertUnit.GetRandomMetricSize();
-            else if(Dificulty.level == 2)
+            else
                 unitTerm = ConvertUnit.GetPseudoRandomMetricSize();
         }
 
