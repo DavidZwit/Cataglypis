@@ -19,7 +19,7 @@ public struct DialogueStruct
 public class DialogueData {
     public static string Wizcat = "Wizcat";
     public static string Ball = "Ball";
-    public static string Mysterious = "?????????";
+    public static string Mysterious = "??????";
     public static string UI = "Notification";
 
     /// <summary>
@@ -30,7 +30,7 @@ public class DialogueData {
         new DialogueStruct(Wizcat, "Hello human. Or should I say ball…","Wizcat", false),
         new DialogueStruct(Wizcat, "You are stuck in the WizCat Nightmare","Wizcat",false),
         new DialogueStruct(Wizcat, "You’ll need to prove yourself worthy if you want to become the ultimate play ball...","Wizcat",false),
-        new DialogueStruct(Wizcat, "EHM I MEAN if you want to get out!","Wizcat",false),
+        new DialogueStruct(Wizcat, "EHM I MEAN if you want to get out! WHAHAHAHA!","laughingcat",false),
         new DialogueStruct(UI, "Tap and hold to move around.","none",false),
     };
 
@@ -52,8 +52,9 @@ public class DialogueData {
     public static DialogueStruct[] tutorial4 = new DialogueStruct[]
     {
         new DialogueStruct(Wizcat, "How is it possible?!","Wizcat", false),
+        new DialogueStruct(Wizcat, "It doesn't matter...","Wizcat", false),
         new DialogueStruct(Wizcat, "Your luck is not going to last forever...","Wizcat", false),
-        new DialogueStruct(Wizcat, "In fact, abandon all your hope!","Wizcat", false),
+        new DialogueStruct(Wizcat, "In fact, abandon all your hope!","laughingcat", false),
     };
 
     /// <summary>
